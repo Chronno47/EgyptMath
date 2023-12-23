@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjt0gtcxj8gec"]
+
+[ext_resource type="Script" path="res://Scripts/Movimento.gd" id="1_lcdkl"]
+[ext_resource type="Texture2D" uid="uid://dbd6op2ilfx7o" path="res://Sprites/Sett/Sett animations.png" id="2_70534"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc07c"]
+atlas = ExtResource("2_70534")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0b3so"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc07c")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Standby",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i33la"]
+radius = 7.0
+height = 28.0
+
+[node name="Sett" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_lcdkl")
+
+[node name="Animações" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -19)
+sprite_frames = SubResource("SpriteFrames_0b3so")
+animation = &"Idle"
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2(15, -60)
+zoom = Vector2(4, 4)
+limit_left = -250
+limit_top = -150
+limit_right = 240
+limit_bottom = 100
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(16, -17)
+shape = SubResource("CapsuleShape2D_i33la")
