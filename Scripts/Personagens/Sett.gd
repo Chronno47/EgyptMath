@@ -5,14 +5,21 @@ signal game_over
 
 @export var jump_force: float = -200.0
 var direction
+var is_holding_coin: bool = false
 
 const MAX_HEALTH = 6
 var player_health = 6
 
+#region Controles
+const INPUT_UP = "up"
+const INPUT_LEFT = "left"
+const INPUT_DOWN = "down"
+const INPUT_RIGHT = "right"
+const INPUT_JUMP = "jump"
+#endregion
+
 #referenciando as variaveis com os nós
 @onready var animations := $"Animações" as AnimatedSprite2D
-@onready var standby_timer := $"Standby Timer" as Timer
-
 
 #region Parte de movimentação do jogador
 func _physics_process(delta):
@@ -21,10 +28,10 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed(INPUT_JUMP) and is_on_floor():
 		velocity.y = jump_force
 
-	direction = Input.get_axis("left", "right")
+	direction = Input.get_axis(INPUT_LEFT, INPUT_RIGHT)
 	if direction != 0:
 		velocity.x = direction * move_speed
 		animations.scale.x = direction
@@ -35,33 +42,17 @@ func _physics_process(delta):
 	move_and_slide()
 #endregion
 
+
 #region Script de animação que eu to tentando terminar, se n der vo ter que remover o timer...
 func _set_state():
 	var state = "Idle"
 
 	if !is_on_floor():
 		state = "Falling"
-		_reset_standy_timer()	
 	elif direction != 0:
 		state = "Running"
-		_reset_standy_timer()	
-	elif standby_timer.is_stopped():
-		state = "Standby"
-	else:
-		_reset_standy_timer()	
 	
-	
-	if animations.animation != state:
+	if animations.name != state:
 		animations.play(state)
-
-func _on_standby_timer_ready():
-	pass # Replace with function body.
-
-func _reset_standy_timer():
-	standby_timer.stop()
-	standby_timer.start()
-
-func _on_standby_timer_timeout():
-	print("Standby timer timeout!")
-
 #endregion
+

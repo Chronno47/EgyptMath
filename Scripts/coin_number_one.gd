@@ -1,15 +1,11 @@
 extends Area2D
+class_name Pickable
 
+@onready var interaction_area: InteractionArea = $"Interactable Area"
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	interaction_area.interact = Callable(self, "_on_interact")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _on_interact():
 	pass
 
-
-func _on_body_entered(body):
-	print("O jogador colidiu com a moeda!")
