@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dextgwq44bfff"]
+
+[ext_resource type="Script" path="res://Scripts/Components/hurtbox_component.gd" id="1_ytcvc"]
+
+[node name="Hurtbox Component" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+script = ExtResource("1_ytcvc")
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="."]
+
+[node name="InvincibilityTime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="InvincibilityTime" to="." method="_on_invincibility_time_timeout"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://cjt0gtcxj8gec"]
+[gd_scene load_steps=33 format=3 uid="uid://cjt0gtcxj8gec"]
 
-[ext_resource type="Script" path="res://Scripts/Movimento.gd" id="1_lcdkl"]
+[ext_resource type="Script" path="res://Scripts/Personagens/Sett.gd" id="1_ox2r6"]
 [ext_resource type="Texture2D" uid="uid://dbd6op2ilfx7o" path="res://Sprites/Sett/Sett animations.png" id="2_70534"]
+[ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="3_5bvpf"]
+[ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="4_bla84"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmopw"]
 atlas = ExtResource("2_70534")
@@ -122,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wqkvl")
 }],
-"loop": true,
+"loop": false,
 "name": &"Falling",
 "speed": 5.0
 }, {
@@ -203,15 +205,22 @@ animations = [{
 radius = 7.0
 height = 28.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xpov"]
+size = Vector2(10.25, 3)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0lkv6"]
+radius = 7.0
+height = 28.0
+
 [node name="Sett" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_lcdkl")
+script = ExtResource("1_ox2r6")
 
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"Standby"
+animation = &"Running"
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(15, -60)
@@ -223,13 +232,28 @@ limit_bottom = 100
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="Collisão" type="CollisionShape2D" parent="."]
 position = Vector2(16, -17)
 shape = SubResource("CapsuleShape2D_i33la")
 
 [node name="Standby Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="Hitbox Component" parent="." instance=ExtResource("3_5bvpf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox Component"]
+position = Vector2(15.875, -4)
+shape = SubResource("RectangleShape2D_8xpov")
+debug_color = Color(0.866667, 0.34902, 0.168627, 0.419608)
+
+[node name="Hurtbox Component" parent="." instance=ExtResource("4_bla84")]
+position = Vector2(15.875, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox Component"]
+position = Vector2(0.125, -13)
+shape = SubResource("CapsuleShape2D_0lkv6")
+debug_color = Color(0.0392157, 0.639216, 0.172549, 0.419608)
 
 [connection signal="ready" from="Standby Timer" to="." method="_on_standby_timer_ready"]
 [connection signal="timeout" from="Standby Timer" to="." method="_on_standby_timer_timeout"]

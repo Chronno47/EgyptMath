@@ -1,16 +1,20 @@
-extends CharacterBody2D
+extends Personagens_Gerais
+class_name Jogador
 
-const SPEED = 100.0
-const JUMP_FORCE = -200.0
+signal game_over
+
+@export var jump_force: float = -200.0
 var direction
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+const MAX_HEALTH = 6
+var player_health = 6
 
+#referenciando as variaveis com os nós
 @onready var animations := $"Animações" as AnimatedSprite2D
 @onready var standby_timer := $"Standby Timer" as Timer
 
 
+#region Parte de movimentação do jogador
 func _physics_process(delta):
 	# Gravidade
 	if !is_on_floor():
@@ -18,19 +22,18 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_FORCE
+		velocity.y = jump_force
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("left", "right")
 	if direction != 0:
-		velocity.x = direction * SPEED
+		velocity.x = direction * move_speed
 		animations.scale.x = direction
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, move_speed)
 
 	_set_state()
 	move_and_slide()
+#endregion
 
 #region Script de animação que eu to tentando terminar, se n der vo ter que remover o timer...
 func _set_state():
