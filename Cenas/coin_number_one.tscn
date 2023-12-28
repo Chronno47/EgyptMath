@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dm7g2uhasu1cj"]
 
+[ext_resource type="Script" path="res://Scripts/Interactables/coin_number_one.gd" id="1_1mldy"]
 [ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="1_3otkd"]
-[ext_resource type="Script" path="res://Scripts/coin_number_one.gd" id="1_rp0wk"]
 [ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="3_6gmq7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7y7of"]
@@ -27,7 +27,7 @@ radius = 8.0
 [node name="Coin Number One" type="Area2D" groups=["NumberCoins"]]
 collision_layer = 16
 collision_mask = 3
-script = ExtResource("1_rp0wk")
+script = ExtResource("1_1mldy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2x867")
@@ -41,5 +41,3 @@ action_name = "Pegar"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
 shape = SubResource("CircleShape2D_26tun")
 debug_color = Color(0.866667, 0.439216, 0.384314, 0.419608)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -20,7 +20,7 @@ func unregister_area(area: InteractionArea):
 
 #isso aqui vai ajustar como a mensagem de interagir vai aparecer
 func _process(delta):
-	if active_areas.size() > 02 && can_interact:
+	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		interaction_message.text = base_text + active_areas[0].action_name
 		interaction_message.global_position = active_areas[0].global_position

@@ -1,5 +1,4 @@
 extends Area2D
-class_name Pickable
 
 @onready var interaction_area: InteractionArea = $"Interactable Area"
 
@@ -8,4 +7,3 @@ func _ready():
 
 func _on_interact():
 	pass
-
