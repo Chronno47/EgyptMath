@@ -46,7 +46,9 @@ func _physics_process(delta):
 func _set_state():
 	var state = "Idle"
 
-	if !is_on_floor():
+	if InteractionManager.holding_item() && direction != 0:
+		state = "Running with coin"
+	elif !is_on_floor():
 		state = "Falling"
 	elif direction != 0:
 		state = "Running"

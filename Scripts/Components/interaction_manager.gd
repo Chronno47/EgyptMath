@@ -9,6 +9,8 @@ const base_text = "[E] para "
 # vai ser colocada a area mais perto e removida quando tiver outra mais perto
 var active_areas: Array = []
 var can_interact: bool = true
+#(custom) vai verificar se o jogador ja ta segurando um item
+var _is_holding_item: bool = false
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)
@@ -49,3 +51,10 @@ func _input(event):
 			can_interact = true
 
 #endregion
+
+#encapsulamento da variavel is_holding_item
+func holding_item():
+	return _is_holding_item
+	
+func set_holding_item(value: bool):
+	_is_holding_item = value

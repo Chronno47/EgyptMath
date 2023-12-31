@@ -5,5 +5,8 @@ extends Area2D
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 
+# se o jogador n tiver segurando nada, ele limpa o item da arvore e diz que o jogador ta segurando item
 func _on_interact():
-	queue_free()
+	if !InteractionManager.holding_item():
+		queue_free()
+		InteractionManager.set_holding_item(true)

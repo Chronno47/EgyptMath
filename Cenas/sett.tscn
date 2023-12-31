@@ -214,7 +214,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4dv2u")
 }],
 "loop": true,
-"name": &"Running wtih coin",
+"name": &"Running with coin",
 "speed": 5.0
 }, {
 "frames": [{
@@ -272,9 +272,7 @@ script = ExtResource("1_ox2r6")
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"Falling with coin"
-frame = 1
-frame_progress = 0.39941
+animation = &"Running with coin"
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(15, -60)
