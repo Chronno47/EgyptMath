@@ -31,12 +31,14 @@ func _process(delta):
 		interaction_message.hide()
 		
 func _sort_by_distance_to_player(area1, area2):
-	var area1_to_player = player.global_position.distance_to(area1.global_position)
-	var area2_to_player = player.global_position.distance_to(area2.global_position)
+	#substituido .distance_to()  pelo distance_squared_to
+	var area1_to_player = player.global_position.distance_squared_to(area1.global_position)
+	var area2_to_player = player.global_position.distance_squared_to(area2.global_position)
 	return area1_to_player < area2_to_player
 	
 #verifica o que acontece quando o jogador pressiona o butao de interagir
-func _input_to_interact(event):
+#qualquer coisa substitui input por event
+func _input(event):
 	if event.is_action_pressed("Interact") && can_interact:
 		if active_areas.size() > 0:
 			can_interact = false

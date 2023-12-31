@@ -42,7 +42,6 @@ func _physics_process(delta):
 	move_and_slide()
 #endregion
 
-
 #region Script de animação que eu to tentando terminar, se n der vo ter que remover o timer...
 func _set_state():
 	var state = "Idle"
