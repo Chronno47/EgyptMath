@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dm7g2uhasu1cj"]
 
-[ext_resource type="Script" path="res://Scripts/Interactables/coin_number_one.gd" id="1_1mldy"]
+[ext_resource type="Script" path="res://Scripts/Interagiveis/coin_number_one.gd" id="1_1mldy"]
 [ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="1_3otkd"]
 [ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="3_6gmq7"]
 
@@ -24,7 +24,7 @@ radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_26tun"]
 
-[node name="Coin Number One" type="Area2D" groups=["Carryable"]]
+[node name="Coin Number One" type="Area2D" groups=["Carryable", "Coins"]]
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_1mldy")

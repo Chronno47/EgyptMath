@@ -45,8 +45,10 @@ func _physics_process(delta):
 #region Script de animação que eu to tentando terminar, se n der vo ter que remover o timer...
 func _set_state():
 	var state = "Idle"
-
-	if InteractionManager.holding_item() && direction != 0:
+	
+	if InteractionManager.holding_coin() && !is_on_floor():
+		state = "Falling with coin"
+	elif InteractionManager.holding_coin() && direction != 0:
 		state = "Running with coin"
 	elif !is_on_floor():
 		state = "Falling"

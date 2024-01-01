@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://y7u1lhdr7318"]
+
+[ext_resource type="Texture2D" uid="uid://cv6mb08plqqdc" path="res://Sprites/Interagiveis/Holder.png" id="1_egmud"]
+[ext_resource type="Script" path="res://Scripts/Interagiveis/holder.gd" id="1_mvadj"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_6pc4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpwjn"]
+atlas = ExtResource("1_egmud")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wycpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpwjn")
+}],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eas7b"]
+radius = 13.0384
+
+[node name="Holder" type="Node2D"]
+position = Vector2(0, -11)
+script = ExtResource("1_mvadj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wycpb")
+animation = &"Empty"
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_6pc4o")]
+action_name = "Colocar Moeda"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_eas7b")

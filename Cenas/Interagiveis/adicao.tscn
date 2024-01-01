@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8ggji74vmqbo"]
+
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="1_xrjpq"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_pcltk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kltqn"]
+atlas = ExtResource("1_xrjpq")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_74433"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kltqn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4eg7s"]
+radius = 9.0
+
+[node name="Adicao" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_74433")
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_pcltk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_4eg7s")
+debug_color = Color(0.862745, 0.341176, 0.294118, 0.419608)

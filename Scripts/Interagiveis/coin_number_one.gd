@@ -7,6 +7,8 @@ func _ready():
 
 # se o jogador n tiver segurando nada, ele limpa o item da arvore e diz que o jogador ta segurando item
 func _on_interact():
-	if !InteractionManager.holding_item():
-		queue_free()
-		InteractionManager.set_holding_item(true)
+	if !InteractionManager.holding_coin():
+		InteractionManager.set_holding_coin(true)
+		InteractionManager.holding_coin_number(1)
+		print(InteractionManager.coin_value)
+		

@@ -9,8 +9,11 @@ const base_text = "[E] para "
 # vai ser colocada a area mais perto e removida quando tiver outra mais perto
 var active_areas: Array = []
 var can_interact: bool = true
-#(custom) vai verificar se o jogador ja ta segurando um item
-var _is_holding_item: bool = false
+#region variaveis custom que não fazem parte do tutorial
+#(custom) vai verificar se o jogador ja ta segurando uma moeda
+var is_holding_coin: bool = false
+var coin_value: int
+#endregion
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)
@@ -19,6 +22,7 @@ func unregister_area(area: InteractionArea):
 	var index = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
+#endregion
 
 #isso aqui vai ajustar como a mensagem de interagir vai aparecer
 func _process(delta):
@@ -39,6 +43,8 @@ func _sort_by_distance_to_player(area1, area2):
 	return area1_to_player < area2_to_player
 	
 #verifica o que acontece quando o jogador pressiona o butao de interagir
+#se tiver na area de interação ele aciona, se nao então n faz nada
+#se a tecla de drop for pressionada ele diz que n ta mais segurando item
 #qualquer coisa substitui input por event
 func _input(event):
 	if event.is_action_pressed("Interact") && can_interact:
@@ -49,12 +55,21 @@ func _input(event):
 			await active_areas[0].interact.call()
 			
 			can_interact = true
-
+			
+	elif event.is_action_pressed("drop") && is_holding_coin:
+		drop_item()
+		holding_coin_number(0)
 #endregion
 
 #encapsulamento da variavel is_holding_item
-func holding_item():
-	return _is_holding_item
+func holding_coin():
+	return is_holding_coin
 	
-func set_holding_item(value: bool):
-	_is_holding_item = value
+func set_holding_coin(value: bool):
+	is_holding_coin = value
+
+func holding_coin_number(number: int):
+	coin_value = number
+
+func drop_item():
+	set_holding_coin(false)
