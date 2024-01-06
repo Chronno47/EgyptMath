@@ -6,7 +6,7 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 
 func _on_interact():
-	if !InteractionManager.holding_coin():
+	if !InteractionManager.holding_coin() && !InteractionManager.holding_operator():
 		InteractionManager.set_holding_coin(true)
 		InteractionManager.holding_coin_number(6)
 		print(InteractionManager.coin_value)

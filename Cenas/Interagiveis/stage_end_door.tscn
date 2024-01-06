@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dit1rxp4yx7oe"]
+
+[ext_resource type="Script" path="res://Scripts/Interagiveis/stage_end_door.gd" id="1_c0wid"]
+[ext_resource type="Texture2D" uid="uid://61mp7ykwq8q8" path="res://Sprites/Interagiveis/Sidedoor.png" id="1_ytm8l"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_ksu88"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b12kr"]
+atlas = ExtResource("1_ytm8l")
+region = Rect2(0, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2rpr"]
+atlas = ExtResource("1_ytm8l")
+region = Rect2(66, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0xf4"]
+atlas = ExtResource("1_ytm8l")
+region = Rect2(22, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wois5"]
+atlas = ExtResource("1_ytm8l")
+region = Rect2(44, 0, 22, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g26l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b12kr")
+}],
+"loop": true,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2rpr")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0xf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wois5")
+}],
+"loop": false,
+"name": &"Opening",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_717bj"]
+size = Vector2(23, 32)
+
+[node name="StageEnd_Door" type="Node2D"]
+script = ExtResource("1_c0wid")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g26l1")
+animation = &"Opening"
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_ksu88")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("RectangleShape2D_717bj")

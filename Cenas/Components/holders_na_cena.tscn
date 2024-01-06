@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhhtj636fq3ii"]
+
+[ext_resource type="Script" path="res://Scripts/Components/holders_na_cena.gd" id="1_pu75a"]
+[ext_resource type="PackedScene" uid="uid://cw3c1b2hook3w" path="res://Cenas/Components/calculo_component.tscn" id="2_7gbdy"]
+
+[node name="Holders na Cena" type="Node2D"]
+script = ExtResource("1_pu75a")
+
+[node name="Calculo Component" parent="." instance=ExtResource("2_7gbdy")]

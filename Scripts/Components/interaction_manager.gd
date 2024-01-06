@@ -10,9 +10,21 @@ const base_text = "[E] para "
 var active_areas: Array = []
 var can_interact: bool = true
 #region variaveis custom que não fazem parte do tutorial
-#(custom) vai verificar se o jogador ja ta segurando uma moeda
+#(custom) vai verificar se o jogador ja ta segurando uma moeda/operador
 var is_holding_coin: bool = false
+var is_holding_operator: bool = false
+#(custom) numero da moeda/tipo de operacao
 var coin_value: int
+
+enum OperatorType
+{
+	ADICAO,
+	SUBTRACAO,
+	MULTIPLICACAO,
+	DIVISAO,
+	NONE,
+}
+var holding_operator_type: OperatorType
 #endregion
 
 func register_area(area: InteractionArea):
@@ -56,12 +68,14 @@ func _input(event):
 			
 			can_interact = true
 			
-	elif event.is_action_pressed("drop") && is_holding_coin:
-		drop_item()
-		holding_coin_number(0)
+	elif event.is_action_pressed("drop"):
+		if holding_coin() || holding_operator():
+			drop_item()
+			holding_coin_number(0)
+			set_holding_operator_type(OperatorType.NONE)
 #endregion
 
-#encapsulamento da variavel is_holding_item
+#region varias funcoes pra definição de estados
 func holding_coin():
 	return is_holding_coin
 	
@@ -70,6 +84,17 @@ func set_holding_coin(value: bool):
 
 func holding_coin_number(number: int):
 	coin_value = number
+	
+func holding_operator():
+	return is_holding_operator
+	
+func set_holding_operator(value:bool):
+	is_holding_operator = value
+	
+func set_holding_operator_type(type: OperatorType):
+	holding_operator_type = type
 
 func drop_item():
 	set_holding_coin(false)
+	set_holding_operator(false)
+#endregion

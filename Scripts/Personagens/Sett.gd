@@ -46,10 +46,27 @@ func _physics_process(delta):
 func _set_state():
 	var state = "Idle"
 	
-	if InteractionManager.holding_coin() && !is_on_floor():
-		state = "Falling with coin"
-	elif InteractionManager.holding_coin() && direction != 0:
-		state = "Running with coin"
+	##LEMBRA DE ADICIONAR UM IDLE PRA MOEDA + RESOLVER O PROBLEMA DE INVERSAO DELA
+	if InteractionManager.holding_coin():
+		if !is_on_floor():
+			match InteractionManager.coin_value:
+				1:
+					state = "FallingCoin1"
+		elif direction != 0:
+			match InteractionManager.coin_value:
+				1:
+					state = "RunningCoin1"
+	
+	elif InteractionManager.holding_operator():
+		if !is_on_floor():
+			match InteractionManager.holding_operator_type:
+				0:
+					state = "FallingAdicao"
+		elif direction != 0:
+			match InteractionManager.holding_operator_type:
+				0:
+					state = "RunningAdicao"
+					
 	elif !is_on_floor():
 		state = "Falling"
 	elif direction != 0:
