@@ -13,6 +13,7 @@ func _count_holders():
 		if child is Holder:
 			holder_quantity += 1
 			holders_array.append(child)
+			child.update_holder_status()
 	print("Quantidade de Holders:", holder_quantity)
 	print("Quantidade de Holders no Array:", holders_array.size())
 
