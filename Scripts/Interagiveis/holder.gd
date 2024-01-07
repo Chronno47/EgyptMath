@@ -1,6 +1,9 @@
 extends Node2D
 class_name Holder
 
+signal on_coin_placed
+signal on_operator_placed
+
 @onready var interaction_area := $"Interactable Area" as InteractionArea
 const operator = preload("res://Scripts/Components/interaction_manager.gd").OperatorType
 
@@ -48,12 +51,12 @@ func _holder_operator(operation):
 func _set_as_holding_coin():
 	operator_on_holder = false
 	coin_on_holder = true
-	CustomSignals.emit_signal("On_coin_placed", holder_current_value)
+	emit_signal("on_coin_placed", holder_current_value)
 	
 func _set_as_holding_operator():
 	coin_on_holder = false
 	operator_on_holder = true
-	CustomSignals.emit_signal("On_operator_placed", holder_current_operator)
+	emit_signal("on_operator_placed", holder_current_operator)
 	
 #inutil por enquanto
 func update_holder_status():

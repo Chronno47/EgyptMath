@@ -502,3 +502,6 @@ position = Vector2(80, -18)
 position = Vector2(-37, -17)
 
 [node name="Sett" parent="." instance=ExtResource("1_5t0qs")]
+
+[connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_operator_placed"]
