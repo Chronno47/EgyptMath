@@ -18,11 +18,11 @@ var coin_value: int
 
 enum OperatorType
 {
-	ADICAO,
-	SUBTRACAO,
-	MULTIPLICACAO,
-	DIVISAO,
-	NONE,
+	ADICAO = 100,
+	SUBTRACAO = 200,
+	MULTIPLICACAO = 300,
+	DIVISAO = 400,
+	NONE = 500,
 }
 var holding_operator_type: OperatorType
 #endregion

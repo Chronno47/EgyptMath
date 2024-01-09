@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6ijb0gn2irxk"]
+
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="1_1w56c"]
+[ext_resource type="Script" path="res://Scripts/Interagiveis/multiplicacao.gd" id="1_fu1im"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_7vioy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecg6n"]
+atlas = ExtResource("1_1w56c")
+region = Rect2(240, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhqbv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecg6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f57ua"]
+radius = 11.0
+
+[node name="Multiplicacao" type="Node2D"]
+script = ExtResource("1_fu1im")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lhqbv")
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_7vioy")]
+action_name = "Pegar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_f57ua")
+debug_color = Color(0.752941, 0.45098, 0.247059, 0.419608)

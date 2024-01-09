@@ -255,6 +255,11 @@ animations = [{
 "name": &"RunningCoin1",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"RunningSubtracao",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ns17")
@@ -310,13 +315,13 @@ script = ExtResource("1_ox2r6")
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"FallingAdicao"
+animation = &"Falling"
 
 [node name="Camera" type="Camera2D" parent="."]
-offset = Vector2(15, -60)
+offset = Vector2(15, -65)
 zoom = Vector2(4, 4)
 limit_left = -250
-limit_top = -150
+limit_top = -200
 limit_right = 240
 limit_bottom = 100
 editor_draw_limits = true

@@ -5,6 +5,9 @@ signal on_coin_placed
 signal on_operator_placed
 
 @onready var interaction_area := $"Interactable Area" as InteractionArea
+@onready var animations := $"States" as AnimatedSprite2D
+@onready var holders_in_scene = get_parent()
+
 const operator = preload("res://Scripts/Components/interaction_manager.gd").OperatorType
 
 #vai dizer a moeda que o pedestal ta segurando no momento
@@ -25,7 +28,9 @@ func _on_interact():
 	elif InteractionManager.holding_operator():
 		_handle_operator_interaction()
 
-
+	_set_state()
+	holders_in_scene.emit_signal("on_item_placed")
+	
 func _handle_coin_interaction():
 		InteractionManager.set_holding_coin(false)
 		holder_current_operator = operator.NONE
@@ -57,7 +62,30 @@ func _set_as_holding_operator():
 	coin_on_holder = false
 	operator_on_holder = true
 	emit_signal("on_operator_placed", holder_current_operator)
-	
+
+#region função de estados do pedestal, ele vai mostrar o item que ele tiver segurando
+func _set_state():
+	var state = "Empty"
+
+	if coin_on_holder:
+		match holder_current_value:
+			1:
+				state = "Coin_one"
+	elif operator_on_holder:
+		match holder_current_operator:
+			operator.ADICAO:
+				state = "Adicao"
+			operator.SUBTRACAO:
+				state = "Subtracao"
+			operator.MULTIPLICACAO:
+				state = "Multiplicacao"
+			operator.DIVISAO:
+				state = "Divisao"
+
+	if animations.name != state:
+		animations.play(state)
+#endregion
+
 #inutil por enquanto
 func update_holder_status():
 	if coin_on_holder:

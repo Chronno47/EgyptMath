@@ -7,3 +7,5 @@
 script = ExtResource("1_pu75a")
 
 [node name="Calculo Component" parent="." instance=ExtResource("2_7gbdy")]
+
+[connection signal="on_item_placed" from="." to="Calculo Component" method="_on_holders_na_cena_on_item_placed"]

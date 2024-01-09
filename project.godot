@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://Cenas/Components/interaction_manager.tscn"
-CustomSignals="*res://Scripts/Components/CustomSignals.gd"
 
 [display]
 

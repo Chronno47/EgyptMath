@@ -1,21 +1,81 @@
-[gd_scene load_steps=7 format=3 uid="uid://y7u1lhdr7318"]
+[gd_scene load_steps=12 format=3 uid="uid://y7u1lhdr7318"]
 
 [ext_resource type="Texture2D" uid="uid://cv6mb08plqqdc" path="res://Sprites/Interagiveis/Holder.png" id="1_egmud"]
 [ext_resource type="Script" path="res://Scripts/Interagiveis/holder.gd" id="1_mvadj"]
 [ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_6pc4o"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmmqt"]
+atlas = ExtResource("1_egmud")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2abu"]
+atlas = ExtResource("1_egmud")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbc4y"]
+atlas = ExtResource("1_egmud")
+region = Rect2(448, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpwjn"]
 atlas = ExtResource("1_egmud")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a36kf"]
+atlas = ExtResource("1_egmud")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b421g"]
+atlas = ExtResource("1_egmud")
+region = Rect2(384, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_wycpb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmmqt")
+}],
+"loop": true,
+"name": &"Adicao",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2abu")
+}],
+"loop": true,
+"name": &"Coin_one",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbc4y")
+}],
+"loop": true,
+"name": &"Divisao",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qpwjn")
 }],
 "loop": true,
 "name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a36kf")
+}],
+"loop": true,
+"name": &"Multiplicacao",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b421g")
+}],
+"loop": true,
+"name": &"Subtracao",
 "speed": 5.0
 }]
 
@@ -26,7 +86,7 @@ radius = 13.0384
 position = Vector2(0, -11)
 script = ExtResource("1_mvadj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="States" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wycpb")
 animation = &"Empty"
 
