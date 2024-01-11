@@ -1,5 +1,7 @@
 extends Node2D
 
+signal player_enters_door
+
 @onready var interaction_area := $"Interactable Area" as InteractionArea
 @onready var states := $"States" as AnimatedSprite2D
 var door_code:int
@@ -10,7 +12,7 @@ func _ready():
 		
 func _on_interact():
 	if calculo_result == door_code:
-		print("A PORTA ESTA ABERTA")
+		emit_signal("player_enters_door")
 
 func setup_door(code:int):
 	door_code = code

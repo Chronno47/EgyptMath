@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6t4453fqpdu8"]
+
+[ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="1_24vow"]
+[ext_resource type="PackedScene" uid="uid://cjt0gtcxj8gec" path="res://Cenas/sett.tscn" id="2_gc0ur"]
+
+[node name="Sala de Debug 2" type="Node2D"]
+
+[node name="Generic Rooms Tilemap" parent="." instance=ExtResource("1_24vow")]
+
+[node name="Sett" parent="." instance=ExtResource("2_gc0ur")]
+position = Vector2(-20, 1)
