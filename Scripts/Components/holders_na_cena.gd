@@ -11,8 +11,8 @@ var holders_array: Array = []
 
 func _ready():
 	_count_holders()
-	calculo_component.get_holder_array_info(holder_quantity, holders_array)
-
+	calculo_component.get_holder_array_info()
+	
 func _count_holders():
 	for child in get_children():
 		if child is Holder:

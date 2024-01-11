@@ -1,6 +1,8 @@
 extends Personagens_Gerais
 class_name Jogador
 
+const operator = preload("res://Scripts/Components/interaction_manager.gd").OperatorType
+
 signal game_over
 
 @export var jump_force: float = -200.0
@@ -52,19 +54,50 @@ func _set_state():
 			match InteractionManager.coin_value:
 				1:
 					state = "FallingCoin1"
+				2:
+					state = "FallingCoin2"
+				3:
+					state = "FallingCoin3"
+				4:
+					state = "FallingCoin4"
+				5:
+					state = "FallingCoin5"
+				6:
+					state = "FallingCoin6"
+				7:
+					state = "FallingCoin7"
+				8:
+					state = "FallingCoin8"
+				9:
+					state = "FallingCoin9"
 		elif direction != 0:
 			match InteractionManager.coin_value:
 				1:
 					state = "RunningCoin1"
-	
+				2:
+					state = "RunningCoin2"
+				3:
+					state = "RunningCoin3"
+				4:
+					state = "RunningCoin4"
+				5:
+					state = "RunningCoin5"
+				6:
+					state = "RunningCoin6"
+				7:
+					state = "RunningCoin7"
+				8:
+					state = "RunningCoin8"
+				9:
+					state = "RunningCoin9"
 	elif InteractionManager.holding_operator():
 		if !is_on_floor():
 			match InteractionManager.holding_operator_type:
-				0:
+				operator.ADICAO:
 					state = "FallingAdicao"
 		elif direction != 0:
 			match InteractionManager.holding_operator_type:
-				0:
+				operator.ADICAO:
 					state = "RunningAdicao"
 					
 	elif !is_on_floor():

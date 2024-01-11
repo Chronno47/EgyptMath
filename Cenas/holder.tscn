@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://y7u1lhdr7318"]
+[gd_scene load_steps=13 format=3 uid="uid://y7u1lhdr7318"]
 
 [ext_resource type="Texture2D" uid="uid://cv6mb08plqqdc" path="res://Sprites/Interagiveis/Holder.png" id="1_egmud"]
 [ext_resource type="Script" path="res://Scripts/Interagiveis/holder.gd" id="1_mvadj"]
@@ -11,6 +11,10 @@ region = Rect2(352, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2abu"]
 atlas = ExtResource("1_egmud")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i1uv"]
+atlas = ExtResource("1_egmud")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbc4y"]
 atlas = ExtResource("1_egmud")
@@ -43,7 +47,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_l2abu")
 }],
 "loop": true,
-"name": &"Coin_one",
+"name": &"Coin1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i1uv")
+}],
+"loop": true,
+"name": &"Coin2",
 "speed": 5.0
 }, {
 "frames": [{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dit1rxp4yx7oe"]
+[gd_scene load_steps=12 format=3 uid="uid://dit1rxp4yx7oe"]
 
 [ext_resource type="Script" path="res://Scripts/Interagiveis/stage_end_door.gd" id="1_c0wid"]
 [ext_resource type="Texture2D" uid="uid://61mp7ykwq8q8" path="res://Sprites/Interagiveis/Sidedoor.png" id="1_ytm8l"]
@@ -8,9 +8,13 @@
 atlas = ExtResource("1_ytm8l")
 region = Rect2(0, 0, 22, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b2rpr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_34xu1"]
 atlas = ExtResource("1_ytm8l")
-region = Rect2(66, 0, 22, 31)
+region = Rect2(44, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wwvk"]
+atlas = ExtResource("1_ytm8l")
+region = Rect2(22, 0, 22, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0xf4"]
 atlas = ExtResource("1_ytm8l")
@@ -19,6 +23,10 @@ region = Rect2(22, 0, 22, 31)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wois5"]
 atlas = ExtResource("1_ytm8l")
 region = Rect2(44, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk886"]
+atlas = ExtResource("1_ytm8l")
+region = Rect2(66, 0, 22, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g26l1"]
 animations = [{
@@ -32,10 +40,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b2rpr")
+"texture": SubResource("AtlasTexture_34xu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wwvk")
 }],
 "loop": true,
-"name": &"Open",
+"name": &"Closing",
 "speed": 5.0
 }, {
 "frames": [{
@@ -44,6 +55,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wois5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk886")
 }],
 "loop": false,
 "name": &"Opening",
@@ -56,9 +70,9 @@ size = Vector2(23, 32)
 [node name="StageEnd_Door" type="Node2D"]
 script = ExtResource("1_c0wid")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="States" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g26l1")
-animation = &"Opening"
+animation = &"Closed"
 
 [node name="Interactable Area" parent="." instance=ExtResource("2_ksu88")]
 

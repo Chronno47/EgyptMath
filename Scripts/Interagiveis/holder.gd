@@ -70,7 +70,10 @@ func _set_state():
 	if coin_on_holder:
 		match holder_current_value:
 			1:
-				state = "Coin_one"
+				state = "Coin1"
+			2:
+				state = "Coin2"
+				
 	elif operator_on_holder:
 		match holder_current_operator:
 			operator.ADICAO:

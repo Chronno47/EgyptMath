@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cjt0gtcxj8gec"]
+[gd_scene load_steps=49 format=3 uid="uid://cjt0gtcxj8gec"]
 
 [ext_resource type="Script" path="res://Scripts/Personagens/Sett.gd" id="1_ox2r6"]
 [ext_resource type="Texture2D" uid="uid://dbd6op2ilfx7o" path="res://Sprites/Sett/Sett animations.png" id="2_70534"]
@@ -40,6 +40,14 @@ region = Rect2(256, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b50jc"]
 atlas = ExtResource("2_70534")
 region = Rect2(288, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y16fi"]
+atlas = ExtResource("2_70534")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw4fw"]
+atlas = ExtResource("2_70534")
+region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cc07c"]
 atlas = ExtResource("2_70534")
@@ -100,6 +108,22 @@ region = Rect2(192, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pk17"]
 atlas = ExtResource("2_70534")
 region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs7b6"]
+atlas = ExtResource("2_70534")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge88b"]
+atlas = ExtResource("2_70534")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u31oe"]
+atlas = ExtResource("2_70534")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53vdw"]
+atlas = ExtResource("2_70534")
+region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ns17"]
 atlas = ExtResource("2_70534")
@@ -192,6 +216,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_y16fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw4fw")
+}],
+"loop": true,
+"name": &"FallingCoin2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cc07c")
 }],
 "loop": true,
@@ -255,6 +290,23 @@ animations = [{
 "name": &"RunningCoin1",
 "speed": 5.0
 }, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge88b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u31oe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53vdw")
+}],
+"loop": true,
+"name": &"RunningCoin2",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"RunningSubtracao",
@@ -315,7 +367,7 @@ script = ExtResource("1_ox2r6")
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"Falling"
+animation = &"FallingCoin2"
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(15, -65)

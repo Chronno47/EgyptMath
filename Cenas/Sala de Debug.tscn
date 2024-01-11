@@ -1,14 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://qq7lp8p1f0wx"]
+[gd_scene load_steps=16 format=3 uid="uid://qq7lp8p1f0wx"]
 
+[ext_resource type="Script" path="res://Scripts/Salas/Sala de Debug 1.gd" id="1_0mned"]
 [ext_resource type="PackedScene" uid="uid://cjt0gtcxj8gec" path="res://Cenas/sett.tscn" id="1_5t0qs"]
 [ext_resource type="PackedScene" uid="uid://dm7g2uhasu1cj" path="res://Cenas/coin_number_one.tscn" id="2_bnnab"]
 [ext_resource type="PackedScene" uid="uid://dhhtj636fq3ii" path="res://Cenas/Components/holders_na_cena.tscn" id="3_tprv0"]
 [ext_resource type="Texture2D" uid="uid://ccmh1fmww20f1" path="res://Tilesets/Pyramid Generic Rooms.png" id="3_velci"]
 [ext_resource type="PackedScene" uid="uid://y7u1lhdr7318" path="res://Cenas/holder.tscn" id="4_56lst"]
+[ext_resource type="PackedScene" uid="uid://cfpt784ym7lu1" path="res://Cenas/Interagiveis/coin_two.tscn" id="5_ceard"]
+[ext_resource type="PackedScene" uid="uid://cw3c1b2hook3w" path="res://Cenas/Components/calculo_component.tscn" id="5_mv422"]
 [ext_resource type="PackedScene" uid="uid://b8ggji74vmqbo" path="res://Cenas/Interagiveis/adicao.tscn" id="5_rf38w"]
 [ext_resource type="PackedScene" uid="uid://cf6ptckueddt0" path="res://Cenas/Interagiveis/subtracao.tscn" id="7_5enxr"]
 [ext_resource type="PackedScene" uid="uid://b6ijb0gn2irxk" path="res://Cenas/Interagiveis/multiplicacao.tscn" id="8_jkpjb"]
 [ext_resource type="PackedScene" uid="uid://7538d7523jcy" path="res://Cenas/Interagiveis/divisao.tscn" id="9_a23et"]
+[ext_resource type="PackedScene" uid="uid://dit1rxp4yx7oe" path="res://Cenas/Interagiveis/stage_end_door.tscn" id="10_yg7dg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0macs"]
 texture = ExtResource("3_velci")
@@ -466,6 +470,7 @@ physics_layer_0/collision_mask = 22
 sources/0 = SubResource("TileSetAtlasSource_0macs")
 
 [node name="Sala de Debug" type="Node2D"]
+script = ExtResource("1_0mned")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-9, 0)
@@ -490,10 +495,15 @@ position = Vector2(161, -16)
 [node name="Holder3" parent="Holders na Cena" instance=ExtResource("4_56lst")]
 position = Vector2(186, -16)
 
+[node name="Calculo Component" parent="Holders na Cena" instance=ExtResource("5_mv422")]
+
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin Number One" parent="Coins" instance=ExtResource("2_bnnab")]
 position = Vector2(80, -18)
+
+[node name="Coin_Two" parent="Coins" instance=ExtResource("5_ceard")]
+position = Vector2(53, -17)
 
 [node name="Operators" type="Node2D" parent="."]
 
@@ -509,11 +519,16 @@ position = Vector2(-142, -17)
 [node name="Divisao" parent="Operators" instance=ExtResource("9_a23et")]
 position = Vector2(-114, -17)
 
+[node name="StageEnd_Door" parent="." instance=ExtResource("10_yg7dg")]
+position = Vector2(218, -15)
+
 [node name="Sett" parent="." instance=ExtResource("1_5t0qs")]
 
+[connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
 [connection signal="on_operator_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_operator_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_coin_placed"]
 [connection signal="on_operator_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_operator_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_coin_placed"]
 [connection signal="on_operator_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_operator_placed"]
+[connection signal="result_updated" from="Holders na Cena/Calculo Component" to="StageEnd_Door" method="_on_calculo_component_result_updated"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfpt784ym7lu1"]
+
+[ext_resource type="Script" path="res://Scripts/Interagiveis/Coin_Two.gd" id="1_hb78x"]
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="2_ll88f"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="3_53vm1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqahp"]
+atlas = ExtResource("2_ll88f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5gdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqahp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33t3p"]
+
+[node name="Coin_Two" type="Node2D"]
+script = ExtResource("1_hb78x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n5gdw")
+
+[node name="Interactable Area" parent="." instance=ExtResource("3_53vm1")]
+action_name = "Pegar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_33t3p")
+debug_color = Color(0.662745, 0.505882, 0.219608, 0.419608)
