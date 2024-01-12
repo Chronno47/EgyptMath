@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+#player info pega uma instancia do singleton que armazena a posição do jogado PRO JOGO NAO CRASHAR
+@onready var player_info := preload("res://Scripts/Components/player_info.gd").new()
 @onready var interaction_message := $"Interaction Message" as Label
 
 const base_text = "[E] para "
@@ -50,8 +51,8 @@ func _process(delta):
 		
 func _sort_by_distance_to_player(area1, area2):
 	#substituido .distance_to()  pelo distance_squared_to
-	var area1_to_player = player.global_position.distance_squared_to(area1.global_position)
-	var area2_to_player = player.global_position.distance_squared_to(area2.global_position)
+	var area1_to_player = player_info.player_position.distance_squared_to(area1.global_position)
+	var area2_to_player = player_info.player_position.distance_squared_to(area2.global_position)
 	return area1_to_player < area2_to_player
 	
 #verifica o que acontece quando o jogador pressiona o butao de interagir

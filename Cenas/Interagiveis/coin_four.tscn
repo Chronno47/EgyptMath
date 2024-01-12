@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://3ybv3et88ji"]
+
+[ext_resource type="Script" path="res://Scripts/Interagiveis/coin_four.gd" id="1_dvoo1"]
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="2_bq8km"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="3_xn47e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7aie"]
+
+[node name="Coin_Four" type="Node2D"]
+script = ExtResource("1_dvoo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bq8km")
+region_enabled = true
+region_rect = Rect2(96, 0, 16, 16)
+
+[node name="Interactable Area" parent="." instance=ExtResource("3_xn47e")]
+action_name = "Pegar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_d7aie")
+debug_color = Color(0.741176, 0.462745, 0.145098, 0.419608)

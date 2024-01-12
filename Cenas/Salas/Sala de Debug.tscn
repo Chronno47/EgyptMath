@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://qq7lp8p1f0wx"]
+
+[ext_resource type="Script" path="res://Scripts/Salas/Sala de Debug 1.gd" id="1_qgdf5"]
+[ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="2_0ffoc"]
+[ext_resource type="PackedScene" uid="uid://dhhtj636fq3ii" path="res://Cenas/Components/holders_na_cena.tscn" id="3_hoxnc"]
+[ext_resource type="PackedScene" uid="uid://y7u1lhdr7318" path="res://Cenas/Interagiveis/holder.tscn" id="4_uqkvq"]
+[ext_resource type="PackedScene" uid="uid://cw3c1b2hook3w" path="res://Cenas/Components/calculo_component.tscn" id="5_m66sn"]
+[ext_resource type="PackedScene" uid="uid://dm7g2uhasu1cj" path="res://Cenas/coin_number_one.tscn" id="6_pd4il"]
+[ext_resource type="PackedScene" uid="uid://cfpt784ym7lu1" path="res://Cenas/Interagiveis/coin_two.tscn" id="7_8omsb"]
+[ext_resource type="PackedScene" uid="uid://b8ggji74vmqbo" path="res://Cenas/Interagiveis/adicao.tscn" id="8_lwtyg"]
+[ext_resource type="PackedScene" uid="uid://dit1rxp4yx7oe" path="res://Cenas/Interagiveis/stage_end_door.tscn" id="9_03tal"]
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="10_8m8fd"]
+[ext_resource type="PackedScene" uid="uid://cjt0gtcxj8gec" path="res://Cenas/sett.tscn" id="11_ariuo"]
+
+[node name="Sala de Debug" type="Node2D"]
+script = ExtResource("1_qgdf5")
+
+[node name="Generic Rooms Tilemap" parent="." instance=ExtResource("2_0ffoc")]
+
+[node name="Holders na Cena" parent="." instance=ExtResource("3_hoxnc")]
+
+[node name="Holder1" parent="Holders na Cena" instance=ExtResource("4_uqkvq")]
+position = Vector2(134, -16)
+
+[node name="Holder2" parent="Holders na Cena" instance=ExtResource("4_uqkvq")]
+position = Vector2(161, -16)
+
+[node name="Holder3" parent="Holders na Cena" instance=ExtResource("4_uqkvq")]
+position = Vector2(186, -16)
+
+[node name="Calculo Component" parent="Holders na Cena" instance=ExtResource("5_m66sn")]
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin Number One" parent="Coins" instance=ExtResource("6_pd4il")]
+position = Vector2(79, -17)
+
+[node name="Coin_Two" parent="Coins" instance=ExtResource("7_8omsb")]
+position = Vector2(53, -17)
+
+[node name="Operators" type="Node2D" parent="."]
+
+[node name="Adicao" parent="Operators" instance=ExtResource("8_lwtyg")]
+position = Vector2(-80, -17)
+
+[node name="StageEnd_Door" parent="." instance=ExtResource("9_03tal")]
+position = Vector2(218, -15)
+
+[node name="DoorCode" type="Sprite2D" parent="StageEnd_Door"]
+position = Vector2(-1, -18)
+texture = ExtResource("10_8m8fd")
+region_enabled = true
+region_rect = Rect2(32, 16, 16, 16)
+
+[node name="Sett" parent="." instance=ExtResource("11_ariuo")]
+position = Vector2(-7, 2)
+
+[connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_operator_placed"]
+[connection signal="result_updated" from="Holders na Cena/Calculo Component" to="StageEnd_Door" method="_on_calculo_component_result_updated"]
+[connection signal="player_enters_door" from="StageEnd_Door" to="." method="_on_player_enters_door"]

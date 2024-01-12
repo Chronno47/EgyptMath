@@ -73,7 +73,20 @@ func _set_state():
 				state = "Coin1"
 			2:
 				state = "Coin2"
-				
+			3:
+				state = "Coin3"
+			4:
+				state = "Coin4"
+			5:
+				state = "Coin5"
+			6:
+				state = "Coin6"
+			7:
+				state = "Coin7"
+			8:
+				state = "Coin8"
+			9:
+				state = "Coin9"
 	elif operator_on_holder:
 		match holder_current_operator:
 			operator.ADICAO:

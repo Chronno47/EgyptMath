@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="EgyptMath"
-run/main_scene="res://Cenas/Sala de Debug.tscn"
+run/main_scene="res://Cenas/Salas/Sala de Debug.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 InteractionManager="*res://Cenas/Components/interaction_manager.tscn"
+SceneSwitcher="*res://Scripts/Components/scene_switcher.gd"
+PlayerInfo="*res://Scripts/Components/player_info.gd"
 
 [display]
 

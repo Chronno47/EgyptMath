@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://y7u1lhdr7318"]
+[gd_scene load_steps=20 format=3 uid="uid://y7u1lhdr7318"]
 
 [ext_resource type="Texture2D" uid="uid://cv6mb08plqqdc" path="res://Sprites/Interagiveis/Holder.png" id="1_egmud"]
 [ext_resource type="Script" path="res://Scripts/Interagiveis/holder.gd" id="1_mvadj"]
@@ -15,6 +15,34 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i1uv"]
 atlas = ExtResource("1_egmud")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghb1b"]
+atlas = ExtResource("1_egmud")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6760"]
+atlas = ExtResource("1_egmud")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11wyx"]
+atlas = ExtResource("1_egmud")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7ss4"]
+atlas = ExtResource("1_egmud")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhytc"]
+atlas = ExtResource("1_egmud")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkmuj"]
+atlas = ExtResource("1_egmud")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23yig"]
+atlas = ExtResource("1_egmud")
+region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbc4y"]
 atlas = ExtResource("1_egmud")
@@ -56,6 +84,62 @@ animations = [{
 }],
 "loop": true,
 "name": &"Coin2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghb1b")
+}],
+"loop": true,
+"name": &"Coin3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6760")
+}],
+"loop": true,
+"name": &"Coin4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11wyx")
+}],
+"loop": true,
+"name": &"Coin5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7ss4")
+}],
+"loop": true,
+"name": &"Coin6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhytc")
+}],
+"loop": true,
+"name": &"Coin7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkmuj")
+}],
+"loop": true,
+"name": &"Coin8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23yig")
+}],
+"loop": true,
+"name": &"Coin9",
 "speed": 5.0
 }, {
 "frames": [{
