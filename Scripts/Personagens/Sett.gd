@@ -50,6 +50,25 @@ func _set_state():
 	
 	##LEMBRA DE ADICIONAR UM IDLE PRA MOEDA + RESOLVER O PROBLEMA DE INVERSAO DELA
 	if InteractionManager.holding_coin():
+		match InteractionManager.coin_value:
+			1:
+				state = "IdleCoin1"
+			2:
+				state = "IdleCoin2"
+			3:
+				state = "IdleCoin3"
+			4:
+				state = "IdleCoin4"
+			5:
+				state = "IdleCoin5"
+			6:
+				state = "IdleCoin6"
+			7:
+				state = "IdleCoin7"
+			8:
+				state = "IdleCoin8"
+			9:
+				state = "IdleCoin9"
 		if !is_on_floor():
 			match InteractionManager.coin_value:
 				1:
@@ -91,14 +110,35 @@ func _set_state():
 				9:
 					state = "RunningCoin9"
 	elif InteractionManager.holding_operator():
+		match InteractionManager.holding_operator_type:
+			operator.ADICAO:
+				state = "IdleAdicao"
+			operator.SUBTRACAO:
+				state = "IdleSubtracao"
+			operator.MULTIPLICACAO:
+				state = "IdleMultiplicacao"
+			operator.DIVISAO:
+				state = "IdleDivisao"
 		if !is_on_floor():
 			match InteractionManager.holding_operator_type:
 				operator.ADICAO:
 					state = "FallingAdicao"
+				operator.SUBTRACAO:
+					state = "FallingSubtracao"
+				operator.MULTIPLICACAO:
+					state = "FallingMultiplicacao"
+				operator.DIVISAO:
+					state = "FallingDivisao"
 		elif direction != 0:
 			match InteractionManager.holding_operator_type:
 				operator.ADICAO:
 					state = "RunningAdicao"
+				operator.SUBTRACAO:
+					state = "RunningSubtracao"
+				operator.MULTIPLICACAO:
+					state = "RunningMultiplicacao"
+				operator.DIVISAO:
+					state = "RunningDivisao"
 					
 	elif !is_on_floor():
 		state = "Falling"

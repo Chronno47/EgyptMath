@@ -26,7 +26,6 @@ func _set_state():
 	if states.name != state:
 		states.play(state)
 
-
 func _on_calculo_component_result_updated(value):
 	calculo_result = value
 	_set_state()

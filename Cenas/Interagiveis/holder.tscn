@@ -176,7 +176,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eas7b"]
-radius = 13.0384
+radius = 12.0416
 
 [node name="Holder" type="Node2D"]
 position = Vector2(0, -11)
@@ -187,7 +187,7 @@ sprite_frames = SubResource("SpriteFrames_wycpb")
 animation = &"Empty"
 
 [node name="Interactable Area" parent="." instance=ExtResource("2_6pc4o")]
-action_name = "Colocar Moeda"
+action_name = "Colocar Item"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
 position = Vector2(0, 9)

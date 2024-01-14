@@ -63,4 +63,26 @@ func _on_holder_3_on_operator_placed(operator_in_holder:operator):
 		print("holder array 2: ", holders_array[2])
 
 
+func _on_holder_4_on_coin_placed(holder_coin_value:int):
+	if holder_quantity > 0:
+		holders_array[3] = holder_coin_value
+		print("holder array 3: ", holders_array[3])
+
+
+func _on_holder_4_on_operator_placed(operator_in_holder:operator):
+	if holder_quantity > 0:
+		holders_array[3] = operator_in_holder
+		print("holder array 3: ", holders_array[3])
+
+
+func _on_holder_5_on_coin_placed(holder_coin_value:int):
+	if holder_quantity > 0:
+		holders_array[4] = holder_coin_value
+		print("holder array 4: ", holders_array[4])
+
+
+func _on_holder_5_on_operator_placed(operator_in_holder:operator):
+	if holder_quantity > 0:
+		holders_array[4] = operator_in_holder
+		print("holder array 4: ", holders_array[4])
 #endregion
