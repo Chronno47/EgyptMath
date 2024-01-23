@@ -16,7 +16,6 @@ func _ready():
 func get_holder_array_info():
 	holders_quantity = holders_in_scene.get_holder_quantity()
 	calculo_array = holders_in_scene.get_holders_array()
-	print("calculo array in component: ", calculo_array.size())
 
 # se der no value, lembra que ele troca os enum pra string, e o for so verifica se tem int
 func calculate_values():
@@ -33,22 +32,14 @@ func calculate_values():
 			elif valor > 9:
 				match valor:
 					operator.ADICAO:
-						print("operador de adicao")
 						expression += " + "
 					operator.SUBTRACAO:
-						print("operador de subtracao")
 						expression += " - "
 					operator.MULTIPLICACAO:
-						print("operador de multiplicacao")
 						expression +=  " * "
 					operator.DIVISAO:
-						print("operador de divisao")
 						expression += " / "
-		else:
-			print("no value")
-	print("expressao:", expression)
-	print("calculo array size: ", calculo_array.size())
-	
+
 	current_result = evaluate_expression(expression)
 	emit_signal("result_updated", current_result)
 	print(current_result)
@@ -80,11 +71,3 @@ func evaluate_expression(expression: String) -> int:
 					print("Erro: Divisão por zero!")
 
 	return result
-
-#region inutilizados por hora
-func update_array():
-	calculo_array = holders_in_scene.get_holders_array()
-
-func replace_value(index:int, replacement:String):
-	calculo_array[index] = replacement
-#endregion

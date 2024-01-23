@@ -1,4 +1,5 @@
 extends Area2D
 class_name Hitbox
 
-@export var damage: int
+#Hitbox é onde ele vai causar danos
+@export var damage:int = 1

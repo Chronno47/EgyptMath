@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://blheb8yet33eb"]
+
+[ext_resource type="Script" path="res://Scripts/Personagens/snake.gd" id="1_8v6kh"]
+[ext_resource type="Texture2D" uid="uid://chl0xvxj5m8jj" path="res://Sprites/Inimigos/Cobra/Snake Slithering.png" id="1_curqk"]
+[ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="2_37q8n"]
+[ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="3_ws48n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj7d8"]
+atlas = ExtResource("1_curqk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj46i"]
+atlas = ExtResource("1_curqk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcyym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj7d8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj46i")
+}],
+"loop": true,
+"name": &"Slithering",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpnss"]
+size = Vector2(24, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yroqp"]
+size = Vector2(9.875, 11.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j55bu"]
+size = Vector2(11, 4)
+
+[node name="Snake" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_8v6kh")
+
+[node name="Animacoes" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bcyym")
+animation = &"Slithering"
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4.5)
+shape = SubResource("RectangleShape2D_tpnss")
+
+[node name="Hitbox Component" parent="." instance=ExtResource("2_37q8n")]
+collision_layer = 4
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox Component"]
+position = Vector2(-12.0625, 0)
+shape = SubResource("RectangleShape2D_yroqp")
+debug_color = Color(0.937255, 0.231373, 0.223529, 0.419608)
+
+[node name="Hurtbox Component" parent="." instance=ExtResource("3_ws48n")]
+collision_mask = 2
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox Component"]
+position = Vector2(-9.5, -8)
+shape = SubResource("RectangleShape2D_j55bu")
+debug_color = Color(0.176471, 0.670588, 0.207843, 0.419608)
+
+[node name="Wall_Detector" type="RayCast2D" parent="."]
+target_position = Vector2(-14, 0)
+
+[node name="Ground_Detector" type="RayCast2D" parent="."]
+position = Vector2(-7, 3)
+target_position = Vector2(0, 5)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckiajrj6gr1li"]
+
+[ext_resource type="Texture2D" uid="uid://bc7wftce0m4hw" path="res://Tilesets/Rope.png" id="1_r41ml"]
+[ext_resource type="Script" path="res://Cenas/Interagiveis/Rope.gd" id="1_wtgi5"]
+[ext_resource type="Script" path="res://Scripts/Tilemaps/RopeTile.gd" id="3_x6n6r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_030ee"]
+texture = ExtResource("1_r41ml")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.20971, 2.38649, 2.20971, 2.56326, 2.03293, 8, -2.03293, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.38649, -8, 2.74004, -8, 2.56326, 8, -2.56326, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.38649, -8, 2.56326, -8, 2.38649, 8, -2.74004, 8)
+
+[sub_resource type="TileSet" id="TileSet_qa2yr"]
+physics_layer_0/collision_layer = 0
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_030ee")
+
+[node name="Rope" type="Area2D"]
+script = ExtResource("1_wtgi5")
+
+[node name="RopeTile" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_qa2yr")
+format = 2
+script = ExtResource("3_x6n6r")

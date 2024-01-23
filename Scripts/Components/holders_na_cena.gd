@@ -19,8 +19,6 @@ func _count_holders():
 			holder_quantity += 1
 			holders_array.append(child)
 			
-	print("Quantidade de Holders:", holder_quantity)
-	print("Quantidade de Holders no Array:", holders_array.size())
 
 func get_holder_quantity():
 	return holder_quantity
@@ -32,57 +30,47 @@ func get_holders_array():
 func _on_holder_1_on_coin_placed(holder_coin_value:int):
 	if holder_quantity > 0:
 		holders_array[0] = holder_coin_value
-		print("holder array 0: ", holders_array[0])
 
 func _on_holder_1_on_operator_placed(operator_in_holder:operator):
 	if holder_quantity > 0:
 		holders_array[0] = operator_in_holder
-		print("holder array 0: ", holders_array[0])
 
 func _on_holder_2_on_coin_placed(holder_coin_value:int):
 	if holder_quantity > 0:
 		holders_array[1] = holder_coin_value
-		print("holder array 1: ", holders_array[1])
 
 
 func _on_holder_2_on_operator_placed(operator_in_holder:operator):
 	if holder_quantity > 0:
 		holders_array[1] = operator_in_holder
-		print("holder array 1: ", holders_array[1])
 
 
 func _on_holder_3_on_coin_placed(holder_coin_value:int):
 	if holder_quantity > 0:
 		holders_array[2] = holder_coin_value
-		print("holder array 2: ", holders_array[2])
 
 
 func _on_holder_3_on_operator_placed(operator_in_holder:operator):
 	if holder_quantity > 0:
 		holders_array[2] = operator_in_holder
-		print("holder array 2: ", holders_array[2])
 
 
 func _on_holder_4_on_coin_placed(holder_coin_value:int):
 	if holder_quantity > 0:
 		holders_array[3] = holder_coin_value
-		print("holder array 3: ", holders_array[3])
 
 
 func _on_holder_4_on_operator_placed(operator_in_holder:operator):
 	if holder_quantity > 0:
 		holders_array[3] = operator_in_holder
-		print("holder array 3: ", holders_array[3])
 
 
 func _on_holder_5_on_coin_placed(holder_coin_value:int):
 	if holder_quantity > 0:
 		holders_array[4] = holder_coin_value
-		print("holder array 4: ", holders_array[4])
 
 
 func _on_holder_5_on_operator_placed(operator_in_holder:operator):
 	if holder_quantity > 0:
 		holders_array[4] = operator_in_holder
-		print("holder array 4: ", holders_array[4])
 #endregion

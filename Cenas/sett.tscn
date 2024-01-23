@@ -1,9 +1,21 @@
-[gd_scene load_steps=121 format=3 uid="uid://cjt0gtcxj8gec"]
+[gd_scene load_steps=124 format=3 uid="uid://cjt0gtcxj8gec"]
 
 [ext_resource type="Script" path="res://Scripts/Personagens/Sett.gd" id="1_ox2r6"]
 [ext_resource type="Texture2D" uid="uid://dbd6op2ilfx7o" path="res://Sprites/Sett/Sett animations.png" id="2_70534"]
 [ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="3_5bvpf"]
 [ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="4_bla84"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc17d"]
+atlas = ExtResource("2_70534")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxupd"]
+atlas = ExtResource("2_70534")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t43s1"]
+atlas = ExtResource("2_70534")
+region = Rect2(192, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0yd3c"]
 atlas = ExtResource("2_70534")
@@ -455,7 +467,16 @@ region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0b3so"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc17d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxupd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t43s1")
+}],
 "loop": true,
 "name": &"Climbing",
 "speed": 5.0
@@ -1024,13 +1045,13 @@ size = Vector2(11, 23)
 [node name="Sett" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-15, 2)
 collision_layer = 2
-collision_mask = 29
+collision_mask = 25
 script = ExtResource("1_ox2r6")
 
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"IdleDivisao"
+animation = &"Idle"
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(15, -40)
@@ -1044,6 +1065,7 @@ position = Vector2(15.5, -16.5)
 shape = SubResource("RectangleShape2D_qch16")
 
 [node name="Hitbox Component" parent="." instance=ExtResource("3_5bvpf")]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox Component"]
 position = Vector2(15.875, -4)

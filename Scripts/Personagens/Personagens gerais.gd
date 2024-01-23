@@ -5,5 +5,5 @@ class_name Personagens_Gerais
 @export var move_speed: float = 100.0
 @export var gravity: float = 500.0
 
-func _take_damage(_amount) -> void:
+func take_damage(_amount) -> void:
 	pass

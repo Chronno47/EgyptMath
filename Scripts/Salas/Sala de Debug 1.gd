@@ -7,3 +7,4 @@ func _ready():
 
 func _on_player_enters_door():
 	SceneSwitcher.switch_scene("res://Cenas/Salas/sala_de_debug_2.tscn")
+	InteractionManager.drop_item() #ele so vai resetar os items nesse caso

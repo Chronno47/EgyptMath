@@ -98,4 +98,5 @@ func set_holding_operator_type(type: OperatorType):
 func drop_item():
 	set_holding_coin(false)
 	set_holding_operator(false)
+	
 #endregion

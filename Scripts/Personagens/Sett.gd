@@ -8,9 +8,11 @@ signal game_over
 @export var jump_force: float = -200.0
 var direction
 var is_holding_coin: bool = false
+var is_climbing:bool = false
+@export var climbing_speed:float = 50.0
 
-const MAX_HEALTH = 6
-var player_health = 6
+const MAX_HEALTH:int = 3
+@export var player_health:int = 3
 
 #region Controles
 const INPUT_UP = "up"
@@ -25,12 +27,19 @@ const INPUT_JUMP = "jump"
 
 #region Parte de movimentação do jogador
 func _physics_process(delta):
-	# Gravidade
+	
 	if !is_on_floor():
 		velocity.y += gravity * delta
-
+	
+	if is_climbing:
+		velocity.y = 0
+		if Input.is_action_pressed(INPUT_UP):
+			velocity.y = -climbing_speed
+		elif Input.is_action_pressed(INPUT_DOWN):
+			velocity.y = climbing_speed
+	
 	# Handle jump.
-	if Input.is_action_just_pressed(INPUT_JUMP) and is_on_floor():
+	if Input.is_action_just_pressed(INPUT_JUMP) && is_on_floor():
 		velocity.y = jump_force
 
 	direction = Input.get_axis(INPUT_LEFT, INPUT_RIGHT)
@@ -44,71 +53,18 @@ func _physics_process(delta):
 	move_and_slide()
 #endregion
 
-#region Script de animação que eu to tentando terminar, se n der vo ter que remover o timer...
+#region Script de animação, da uma otimizada na parte de operadores
 func _set_state():
 	var state = "Idle"
 	
-	##LEMBRA DE ADICIONAR UM IDLE PRA MOEDA + RESOLVER O PROBLEMA DE INVERSAO DELA
+	##LEMBRA DE RESOLVER O PROBLEMA DE INVERSAO DA MOEDA
 	if InteractionManager.holding_coin():
-		match InteractionManager.coin_value:
-			1:
-				state = "IdleCoin1"
-			2:
-				state = "IdleCoin2"
-			3:
-				state = "IdleCoin3"
-			4:
-				state = "IdleCoin4"
-			5:
-				state = "IdleCoin5"
-			6:
-				state = "IdleCoin6"
-			7:
-				state = "IdleCoin7"
-			8:
-				state = "IdleCoin8"
-			9:
-				state = "IdleCoin9"
+		state = "IdleCoin%d" % InteractionManager.coin_value
 		if !is_on_floor():
-			match InteractionManager.coin_value:
-				1:
-					state = "FallingCoin1"
-				2:
-					state = "FallingCoin2"
-				3:
-					state = "FallingCoin3"
-				4:
-					state = "FallingCoin4"
-				5:
-					state = "FallingCoin5"
-				6:
-					state = "FallingCoin6"
-				7:
-					state = "FallingCoin7"
-				8:
-					state = "FallingCoin8"
-				9:
-					state = "FallingCoin9"
+			state = "FallingCoin%d" % InteractionManager.coin_value
 		elif direction != 0:
-			match InteractionManager.coin_value:
-				1:
-					state = "RunningCoin1"
-				2:
-					state = "RunningCoin2"
-				3:
-					state = "RunningCoin3"
-				4:
-					state = "RunningCoin4"
-				5:
-					state = "RunningCoin5"
-				6:
-					state = "RunningCoin6"
-				7:
-					state = "RunningCoin7"
-				8:
-					state = "RunningCoin8"
-				9:
-					state = "RunningCoin9"
+			state = "RunningCoin%d" % InteractionManager.coin_value
+			
 	elif InteractionManager.holding_operator():
 		match InteractionManager.holding_operator_type:
 			operator.ADICAO:
@@ -140,6 +96,8 @@ func _set_state():
 				operator.DIVISAO:
 					state = "RunningDivisao"
 					
+	elif is_climbing:
+		state = "Climbing"
 	elif !is_on_floor():
 		state = "Falling"
 	elif direction != 0:

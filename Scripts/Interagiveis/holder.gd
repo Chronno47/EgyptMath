@@ -37,7 +37,6 @@ func _handle_coin_interaction():
 		_holder_value(InteractionManager.coin_value)
 		_set_as_holding_coin()
 		InteractionManager.holding_coin_number(0)
-		print("holder value: ",holder_current_value)
 		
 func _handle_operator_interaction():
 		InteractionManager.set_holding_operator(false)
@@ -45,7 +44,6 @@ func _handle_operator_interaction():
 		_holder_operator(InteractionManager.holding_operator_type)
 		InteractionManager.set_holding_operator_type(operator.NONE)
 		_set_as_holding_operator()
-		print("Holder operator: ", holder_current_operator)
 	
 func _holder_value(number:int):
 	holder_current_value = number
@@ -101,10 +99,3 @@ func _set_state():
 	if animations.name != state:
 		animations.play(state)
 #endregion
-
-#inutil por enquanto
-func update_holder_status():
-	if coin_on_holder:
-		return holder_current_value
-	elif operator_on_holder:
-		return holder_current_operator
