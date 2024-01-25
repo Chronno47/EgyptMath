@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce22joo2cnbis"]
+
+[ext_resource type="FontFile" uid="uid://c72448wf3njqc" path="res://Fonts/PublicPixel-z84yD.ttf" id="1_ci8om"]
+[ext_resource type="Script" path="res://Scripts/Interface/game_over_screen.gd" id="1_pdky7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3ig8"]
+bg_color = Color(0.74902, 0.262745, 0.101961, 1)
+
+[node name="GameOver_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pdky7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 722.0
+color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[node name="Buttons_Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -416.0
+offset_right = 147.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Game_over text" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -168.0
+offset_right = 278.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Game_over text"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ci8om")
+theme_override_font_sizes/font_size = 50
+text = "Fim de Jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart_Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 448.0
+offset_top = 328.0
+offset_right = 784.0
+offset_bottom = 398.0
+theme_override_fonts/font = ExtResource("1_ci8om")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3ig8")
+text = "Tentar Novamente"
+
+[node name="Quit__Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 448.0
+offset_top = 416.0
+offset_right = 784.0
+offset_bottom = 486.0
+theme_override_fonts/font = ExtResource("1_ci8om")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3ig8")
+text = "Sair do Jogo"
+
+[connection signal="pressed" from="Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Quit__Button" to="." method="_on_quit__button_pressed"]

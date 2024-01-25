@@ -1,9 +1,10 @@
-[gd_scene load_steps=124 format=3 uid="uid://cjt0gtcxj8gec"]
+[gd_scene load_steps=125 format=3 uid="uid://cjt0gtcxj8gec"]
 
 [ext_resource type="Script" path="res://Scripts/Personagens/Sett.gd" id="1_ox2r6"]
 [ext_resource type="Texture2D" uid="uid://dbd6op2ilfx7o" path="res://Sprites/Sett/Sett animations.png" id="2_70534"]
 [ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="3_5bvpf"]
 [ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="4_bla84"]
+[ext_resource type="PackedScene" uid="uid://bglalamf8oi3f" path="res://Cenas/Interface/hud.tscn" id="5_e21ah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mc17d"]
 atlas = ExtResource("2_70534")
@@ -1074,8 +1075,15 @@ debug_color = Color(0.866667, 0.34902, 0.168627, 0.419608)
 
 [node name="Hurtbox Component" parent="." instance=ExtResource("4_bla84")]
 position = Vector2(15.875, -4)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox Component"]
 position = Vector2(-0.375, -13.5)
 shape = SubResource("RectangleShape2D_2x0tj")
 debug_color = Color(0.0392157, 0.639216, 0.172549, 0.419608)
+
+[node name="HUD" parent="." instance=ExtResource("5_e21ah")]
+offset_left = -121.0
+offset_top = -114.0
+offset_right = -57.0
+offset_bottom = -90.0

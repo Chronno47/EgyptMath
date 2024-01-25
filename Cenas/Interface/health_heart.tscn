@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbpil80a4uxxx"]
+
+[ext_resource type="Texture2D" uid="uid://bugnlkqjnwncc" path="res://Sprites/Interface/Vida.png" id="1_8nn4k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ife6j"]
+atlas = ExtResource("1_8nn4k")
+region = Rect2(16, 0, 16, 16)
+
+[node name="HealthHeart" type="TextureRect"]
+texture = SubResource("AtlasTexture_ife6j")

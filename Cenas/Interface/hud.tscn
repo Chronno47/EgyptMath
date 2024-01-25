@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bglalamf8oi3f"]
+
+[ext_resource type="Script" path="res://Scripts/Interface/hud.gd" id="1_dxn2g"]
+[ext_resource type="PackedScene" uid="uid://dbpil80a4uxxx" path="res://Cenas/Interface/health_heart.tscn" id="2_ydi1v"]
+
+[node name="HUD" type="VBoxContainer"]
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 32.0
+script = ExtResource("1_dxn2g")
+
+[node name="HealthContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HealthHeart1" parent="HealthContainer" instance=ExtResource("2_ydi1v")]
+layout_mode = 2
+
+[node name="HealthHeart2" parent="HealthContainer" instance=ExtResource("2_ydi1v")]
+layout_mode = 2
+
+[node name="HealthHeart3" parent="HealthContainer" instance=ExtResource("2_ydi1v")]
+layout_mode = 2

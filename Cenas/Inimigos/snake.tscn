@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blheb8yet33eb"]
+[gd_scene load_steps=12 format=3 uid="uid://blheb8yet33eb"]
 
 [ext_resource type="Script" path="res://Scripts/Personagens/snake.gd" id="1_8v6kh"]
 [ext_resource type="Texture2D" uid="uid://chl0xvxj5m8jj" path="res://Sprites/Inimigos/Cobra/Snake Slithering.png" id="1_curqk"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="3_ws48n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jj7d8"]
+atlas = ExtResource("1_curqk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awo8f"]
 atlas = ExtResource("1_curqk")
 region = Rect2(0, 0, 32, 32)
 
@@ -25,6 +29,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_awo8f")
+}, {
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_pj46i")
 }],
 "loop": true,

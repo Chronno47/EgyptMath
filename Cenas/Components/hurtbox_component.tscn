@@ -12,5 +12,3 @@ script = ExtResource("1_ytcvc")
 
 [node name="InvincibilityTime" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="timeout" from="InvincibilityTime" to="." method="_on_invincibility_time_timeout"]

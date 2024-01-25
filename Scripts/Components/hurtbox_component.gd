@@ -9,6 +9,7 @@ class_name Hurtbox
 ## LEMBRA DE COLOCAR CONNECT DO TIMER NO READY E NAO NO INSPETOR
 func _ready():
 	self.connect("area_entered", _on_body_entered)
+	invincibility_time.timeout.connect(_on_invincibility_timeout)
 
 #region ajustes de frames de invincibilidade depois de tomar dano
 func _on_body_entered(hitbox: Hitbox ) -> void:
@@ -16,7 +17,7 @@ func _on_body_entered(hitbox: Hitbox ) -> void:
 		_invincibility_start()
 		owner.take_damage(hitbox.damage)
 
-func _on_invincibility_time_timeout():
+func _on_invincibility_timeout():
 	hurtbox_collision.disabled = false
 
 func _invincibility_start() -> void:

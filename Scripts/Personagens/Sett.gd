@@ -3,6 +3,7 @@ class_name Jogador
 
 const operator = preload("res://Scripts/Components/interaction_manager.gd").OperatorType
 
+#tentar usar esse signal depois
 signal game_over
 
 @export var jump_force: float = -200.0
@@ -107,3 +108,10 @@ func _set_state():
 		animations.play(state)
 #endregion
 
+func take_damage(amount):
+	var old_hp = player_health
+	player_health -= amount
+	UiOnScreen.emit_signal("health_changed", old_hp, player_health, MAX_HEALTH)
+	
+	if player_health <= 0:
+		SceneSwitcher.switch_scene("res://Cenas/Interface/game_over_screen.tscn")
