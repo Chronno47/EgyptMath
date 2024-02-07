@@ -2,17 +2,14 @@ extends Personagens_Gerais
 
 @onready var animations := $"Animacoes" as AnimatedSprite2D
 @onready var wall_detector := $"Wall_Detector" as RayCast2D
-@onready var ground_detector := $"Ground_Detector" as RayCast2D
 
 var health:int = 1
 
 var direction := -1
 
 func _physics_process(delta: float) -> void:
-	if !is_on_floor():
-		velocity.y += gravity * delta
-		
-	if wall_detector.is_colliding() || !ground_detector.is_colliding():
+	
+	if wall_detector.is_colliding():
 		_switch_direction()
 	
 	velocity.x = direction * (move_speed * 0.60)
@@ -31,9 +28,6 @@ func take_damage(damage:int):
 		queue_free()
 
 func _set_state():
-	var state = "Idle"
+	var state = "Flying"
 	
-	if direction != 0:
-		state = "Slithering"
-		
 	animations.play(state)

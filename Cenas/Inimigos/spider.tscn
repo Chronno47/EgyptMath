@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwuei1rxpm7nn"]
+
+[ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="1_8p1od"]
+[ext_resource type="Texture2D" uid="uid://h2gv7mxw2jrb" path="res://Sprites/Inimigos/Spider/Spider.png" id="1_oxi1l"]
+[ext_resource type="Script" path="res://Scripts/Personagens/spider.gd" id="1_tnjhk"]
+[ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="2_p8jv0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtqil"]
+atlas = ExtResource("1_oxi1l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dji8u"]
+atlas = ExtResource("1_oxi1l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkrjo"]
+atlas = ExtResource("1_oxi1l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1n5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtqil")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dji8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkrjo")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax048"]
+size = Vector2(23, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n11ep"]
+size = Vector2(11, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k16oe"]
+size = Vector2(20, 7.75)
+
+[node name="Spider" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_tnjhk")
+
+[node name="Animacoes" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b1n5k")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 8.5)
+shape = SubResource("RectangleShape2D_ax048")
+
+[node name="Hitbox Component" parent="." instance=ExtResource("1_8p1od")]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox Component"]
+position = Vector2(10, 1.5)
+shape = SubResource("RectangleShape2D_n11ep")
+debug_color = Color(0.913725, 0.164706, 0.231373, 0.419608)
+
+[node name="Hurtbox Component" parent="." instance=ExtResource("2_p8jv0")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox Component"]
+position = Vector2(-4, -3.125)
+shape = SubResource("RectangleShape2D_k16oe")
+debug_color = Color(0.14902, 0.635294, 0.337255, 0.419608)
+
+[node name="Wall_Detector" type="RayCast2D" parent="."]
+target_position = Vector2(-18, 0)
+
+[node name="Ground_Detector" type="RayCast2D" parent="."]
+position = Vector2(-1, 4)
+target_position = Vector2(0, 7)

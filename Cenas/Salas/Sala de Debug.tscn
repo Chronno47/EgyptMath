@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qq7lp8p1f0wx"]
+[gd_scene load_steps=14 format=3 uid="uid://qq7lp8p1f0wx"]
 
 [ext_resource type="Script" path="res://Scripts/Salas/Sala de Debug 1.gd" id="1_qgdf5"]
 [ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="2_0ffoc"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dit1rxp4yx7oe" path="res://Cenas/Interagiveis/stage_end_door.tscn" id="9_03tal"]
 [ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="10_8m8fd"]
 [ext_resource type="PackedScene" uid="uid://cjt0gtcxj8gec" path="res://Cenas/sett.tscn" id="11_ariuo"]
+[ext_resource type="PackedScene" uid="uid://dwuei1rxpm7nn" path="res://Cenas/Inimigos/spider.tscn" id="12_wg4ag"]
+[ext_resource type="PackedScene" uid="uid://cn2dj3nhnfaxj" path="res://Cenas/Inimigos/bat.tscn" id="13_8um4b"]
 
 [node name="Sala de Debug" type="Node2D"]
 script = ExtResource("1_qgdf5")
@@ -55,6 +57,12 @@ region_rect = Rect2(32, 16, 16, 16)
 
 [node name="Sett" parent="." instance=ExtResource("11_ariuo")]
 position = Vector2(-7, 2)
+
+[node name="Spider" parent="." instance=ExtResource("12_wg4ag")]
+position = Vector2(-116, -14)
+
+[node name="Bat" parent="." instance=ExtResource("13_8um4b")]
+position = Vector2(-32, -68)
 
 [connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]

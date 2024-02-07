@@ -114,4 +114,7 @@ func take_damage(amount):
 	UiOnScreen.emit_signal("health_changed", old_hp, player_health, MAX_HEALTH)
 	
 	if player_health <= 0:
-		SceneSwitcher.switch_scene("res://Cenas/Interface/game_over_screen.tscn")
+		_on_player_death()
+
+func _on_player_death():
+	SceneSwitcher.switch_scene("res://Cenas/Interface/game_over_screen.tscn")

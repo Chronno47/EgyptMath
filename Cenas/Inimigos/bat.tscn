@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://cn2dj3nhnfaxj"]
+
+[ext_resource type="Script" path="res://Scripts/Personagens/bat.gd" id="1_4iprs"]
+[ext_resource type="Texture2D" uid="uid://cn6gbj0gflenq" path="res://Sprites/Inimigos/Bat/Bat.png" id="1_xvd68"]
+[ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="2_2eith"]
+[ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="3_kscpw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7hfj"]
+atlas = ExtResource("1_xvd68")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37ejx"]
+atlas = ExtResource("1_xvd68")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ym3"]
+atlas = ExtResource("1_xvd68")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po5r2"]
+atlas = ExtResource("1_xvd68")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pb73p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7hfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37ejx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8ym3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po5r2")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uc55"]
+size = Vector2(26, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43t0j"]
+size = Vector2(25, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n82f3"]
+radius = 6.08276
+
+[node name="Bat" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_4iprs")
+
+[node name="Animacoes" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pb73p")
+animation = &"Flying"
+frame_progress = 0.163641
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_6uc55")
+
+[node name="Hitbox Component" parent="." instance=ExtResource("2_2eith")]
+collision_layer = 4
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox Component"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_43t0j")
+debug_color = Color(0.898039, 0.298039, 0.266667, 0.419608)
+
+[node name="Hurtbox Component" parent="." instance=ExtResource("3_kscpw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox Component"]
+position = Vector2(-1, -9)
+shape = SubResource("CircleShape2D_n82f3")
+debug_color = Color(0.219608, 0.631373, 0.301961, 0.419608)
+
+[node name="Wall_Detector" type="RayCast2D" parent="."]
+target_position = Vector2(-14, 0)

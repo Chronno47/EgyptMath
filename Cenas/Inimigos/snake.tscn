@@ -43,10 +43,10 @@ animations = [{
 size = Vector2(24, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yroqp"]
-size = Vector2(9.875, 11.5)
+size = Vector2(12.25, 11.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j55bu"]
-size = Vector2(11, 4)
+size = Vector2(15, 5)
 
 [node name="Snake" type="CharacterBody2D"]
 collision_layer = 4
@@ -55,6 +55,7 @@ script = ExtResource("1_8v6kh")
 [node name="Animacoes" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bcyym")
 animation = &"Slithering"
+frame_progress = 0.969385
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 4.5)
@@ -64,7 +65,7 @@ shape = SubResource("RectangleShape2D_tpnss")
 collision_layer = 4
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox Component"]
-position = Vector2(-12.0625, 0)
+position = Vector2(-9.125, 0)
 shape = SubResource("RectangleShape2D_yroqp")
 debug_color = Color(0.937255, 0.231373, 0.223529, 0.419608)
 
@@ -72,7 +73,7 @@ debug_color = Color(0.937255, 0.231373, 0.223529, 0.419608)
 collision_mask = 2
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox Component"]
-position = Vector2(-9.5, -8)
+position = Vector2(-7.5, -7.5)
 shape = SubResource("RectangleShape2D_j55bu")
 debug_color = Color(0.176471, 0.670588, 0.207843, 0.419608)
 
@@ -80,5 +81,5 @@ debug_color = Color(0.176471, 0.670588, 0.207843, 0.419608)
 target_position = Vector2(-14, 0)
 
 [node name="Ground_Detector" type="RayCast2D" parent="."]
-position = Vector2(-7, 3)
+position = Vector2(0, 3)
 target_position = Vector2(0, 5)
