@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0vuh1tlr0vij"]
+[gd_scene load_steps=19 format=3 uid="uid://d0vuh1tlr0vij"]
 
 [ext_resource type="Script" path="res://Scripts/Salas/sala_de_debug_3.gd" id="1_3kiw8"]
 [ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="1_r8f07"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c7tbsi0btdfbe" path="res://Cenas/Interagiveis/coin_three.tscn" id="11_26suf"]
 [ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="15_x06bk"]
 [ext_resource type="PackedScene" uid="uid://blheb8yet33eb" path="res://Cenas/Inimigos/snake.tscn" id="17_8ttds"]
+[ext_resource type="PackedScene" uid="uid://dwuei1rxpm7nn" path="res://Cenas/Inimigos/spider.tscn" id="18_4tuhs"]
 
 [node name="Sala de Debug 3" type="Node2D"]
 script = ExtResource("1_3kiw8")
@@ -94,6 +95,9 @@ position = Vector2(-18, -315)
 
 [node name="Snake" parent="." instance=ExtResource("17_8ttds")]
 position = Vector2(-54, -25)
+
+[node name="Spider" parent="." instance=ExtResource("18_4tuhs")]
+position = Vector2(24, -28)
 
 [connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
