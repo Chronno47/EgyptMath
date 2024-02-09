@@ -43,7 +43,7 @@ animations = [{
 size = Vector2(24, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yroqp"]
-size = Vector2(12.25, 11.5)
+size = Vector2(12.25, 9.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j55bu"]
 size = Vector2(15, 5)
@@ -58,14 +58,14 @@ animation = &"Slithering"
 frame_progress = 0.969385
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4.5)
+position = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_tpnss")
 
 [node name="Hitbox Component" parent="." instance=ExtResource("2_37q8n")]
 collision_layer = 4
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox Component"]
-position = Vector2(-9.125, 0)
+position = Vector2(-9.125, -0.875)
 shape = SubResource("RectangleShape2D_yroqp")
 debug_color = Color(0.937255, 0.231373, 0.223529, 0.419608)
 
@@ -80,6 +80,10 @@ debug_color = Color(0.176471, 0.670588, 0.207843, 0.419608)
 [node name="Wall_Detector" type="RayCast2D" parent="."]
 target_position = Vector2(-14, 0)
 
-[node name="Ground_Detector" type="RayCast2D" parent="."]
-position = Vector2(0, 3)
+[node name="Ground_Detector_Left" type="RayCast2D" parent="."]
+position = Vector2(-9, 3)
+target_position = Vector2(0, 5)
+
+[node name="Ground_Detector_Right" type="RayCast2D" parent="."]
+position = Vector2(11, 3)
 target_position = Vector2(0, 5)

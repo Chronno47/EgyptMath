@@ -59,7 +59,7 @@ region_rect = Rect2(32, 16, 16, 16)
 position = Vector2(-7, 2)
 
 [node name="Spider" parent="." instance=ExtResource("12_wg4ag")]
-position = Vector2(-116, -14)
+position = Vector2(-105, -12)
 
 [node name="Bat" parent="." instance=ExtResource("13_8um4b")]
 position = Vector2(-32, -68)

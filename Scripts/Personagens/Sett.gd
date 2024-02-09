@@ -117,4 +117,7 @@ func take_damage(amount):
 		_on_player_death()
 
 func _on_player_death():
+	#teve um trabalhinho pra achar isso, mas agora ele pega o caminho do res, em vez da arvore
+	PlayerInfo.previous_scene_path = get_tree().current_scene.scene_file_path
+	print(PlayerInfo.previous_scene_path)
 	SceneSwitcher.switch_scene("res://Cenas/Interface/game_over_screen.tscn")

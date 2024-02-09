@@ -56,14 +56,18 @@ script = ExtResource("1_tnjhk")
 sprite_frames = SubResource("SpriteFrames_b1n5k")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Colisao_chao" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 8.5)
+shape = SubResource("RectangleShape2D_ax048")
+
+[node name="Colisao_teto" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -6)
 shape = SubResource("RectangleShape2D_ax048")
 
 [node name="Hitbox Component" parent="." instance=ExtResource("1_8p1od")]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox Component"]
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox Component"]
 position = Vector2(10, 1.5)
 shape = SubResource("RectangleShape2D_n11ep")
 debug_color = Color(0.913725, 0.164706, 0.231373, 0.419608)
@@ -71,14 +75,31 @@ debug_color = Color(0.913725, 0.164706, 0.231373, 0.419608)
 [node name="Hurtbox Component" parent="." instance=ExtResource("2_p8jv0")]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox Component"]
+[node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox Component"]
 position = Vector2(-4, -3.125)
 shape = SubResource("RectangleShape2D_k16oe")
 debug_color = Color(0.14902, 0.635294, 0.337255, 0.419608)
 
-[node name="Wall_Detector" type="RayCast2D" parent="."]
+[node name="Wall_Detector_Left" type="RayCast2D" parent="."]
+position = Vector2(0, 3)
 target_position = Vector2(-18, 0)
 
-[node name="Ground_Detector" type="RayCast2D" parent="."]
-position = Vector2(-1, 4)
+[node name="Wall_Detector_Right" type="RayCast2D" parent="."]
+position = Vector2(0, 3)
+target_position = Vector2(18, 0)
+
+[node name="Ground_Detector_Left" type="RayCast2D" parent="."]
+position = Vector2(-14, 4)
 target_position = Vector2(0, 7)
+
+[node name="Ground_Detector_Right" type="RayCast2D" parent="."]
+position = Vector2(11, 4)
+target_position = Vector2(0, 7)
+
+[node name="Ceiling_Detector_Left" type="RayCast2D" parent="."]
+position = Vector2(-14, -2)
+target_position = Vector2(0, -7)
+
+[node name="Ceiling_Detector_Right" type="RayCast2D" parent="."]
+position = Vector2(11, -2)
+target_position = Vector2(0, -7)

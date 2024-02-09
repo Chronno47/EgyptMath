@@ -1,6 +1,6 @@
 extends Control
 
 func _on_restart_button_pressed() -> void:
-	pass
+	SceneSwitcher.switch_scene(PlayerInfo.previous_scene_path)
 func _on_quit__button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
