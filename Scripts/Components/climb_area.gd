@@ -5,7 +5,7 @@ const INPUT_DOWN = "down"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") && !InteractionManager.holding_coin() && !InteractionManager.holding_operator():
-		if !body.is_climbing && Input.is_action_pressed(INPUT_UP):
+		if !body.is_climbing && Input.is_action_pressed(INPUT_UP) || Input.is_action_pressed(INPUT_DOWN):
 			body.is_climbing = true
 
 func _on_body_exited(body: Node2D) -> void:

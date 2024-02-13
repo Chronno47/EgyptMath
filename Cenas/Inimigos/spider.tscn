@@ -46,7 +46,7 @@ size = Vector2(23, 3)
 size = Vector2(11, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k16oe"]
-size = Vector2(20, 7.75)
+size = Vector2(29, 4)
 
 [node name="Spider" type="CharacterBody2D"]
 collision_layer = 4
@@ -58,10 +58,6 @@ animation = &"Idle"
 
 [node name="Colisao_chao" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 8.5)
-shape = SubResource("RectangleShape2D_ax048")
-
-[node name="Colisao_teto" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -6)
 shape = SubResource("RectangleShape2D_ax048")
 
 [node name="Hitbox Component" parent="." instance=ExtResource("1_8p1od")]
@@ -76,6 +72,6 @@ debug_color = Color(0.913725, 0.164706, 0.231373, 0.419608)
 collision_mask = 2
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox Component"]
-position = Vector2(-4, -3.125)
+position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_k16oe")
 debug_color = Color(0.14902, 0.635294, 0.337255, 0.419608)

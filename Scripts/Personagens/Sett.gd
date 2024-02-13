@@ -7,6 +7,8 @@ const operator = preload("res://Scripts/Components/interaction_manager.gd").Oper
 signal game_over
 
 @export var jump_force: float = -200.0
+var knockback_vector := Vector2.ZERO
+var knockback_duration:float = 0.25
 var direction
 var is_holding_coin: bool = false
 var is_climbing:bool = false
@@ -49,7 +51,10 @@ func _physics_process(delta):
 		animations.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
-
+	
+	if knockback_vector != Vector2.ZERO:
+		velocity = knockback_vector
+	
 	_set_state()
 	move_and_slide()
 #endregion
@@ -108,7 +113,21 @@ func _set_state():
 		animations.play(state)
 #endregion
 
+#feedback ao dar dano
+func _on_hitbox_component_body_entered(_body: Node2D):
+	velocity.y = jump_force
+
 func take_damage(amount):
+	var knockback_force = Vector2(200,-200)
+	
+	if knockback_force != Vector2.ZERO:
+		knockback_vector = knockback_force
+		
+		var knockback_tween := get_tree().create_tween()
+		knockback_tween.parallel().tween_property(self, "knockback_vector", Vector2.ZERO, knockback_duration)
+		animations.modulate = Color("Red")
+		knockback_tween.parallel().tween_property(animations, "modulate", Color("White"), knockback_duration)
+		
 	var old_hp = player_health
 	player_health -= amount
 	UiOnScreen.emit_signal("health_changed", old_hp, player_health, MAX_HEALTH)

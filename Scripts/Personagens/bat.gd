@@ -4,10 +4,9 @@ extends Personagens_Gerais
 @onready var wall_detector := $"Wall_Detector" as RayCast2D
 
 var health:int = 1
-
 var direction := -1
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if wall_detector.is_colliding():
 		_switch_direction()

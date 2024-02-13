@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://twh6rtgsf4ym"]
+
+[ext_resource type="Texture2D" uid="uid://bc7wftce0m4hw" path="res://Tilesets/Rope.png" id="1_rm5ph"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jogpj"]
+texture = ExtResource("1_rm5ph")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_t3a0h"]
+sources/0 = SubResource("TileSetAtlasSource_jogpj")
+
+[node name="Rope" type="TileMap"]
+tile_set = SubResource("TileSet_t3a0h")
+format = 2
+layer_0/name = "Rope"
+layer_0/y_sort_origin = 3

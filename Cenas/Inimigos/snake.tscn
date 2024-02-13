@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://blheb8yet33eb"]
 
 [ext_resource type="Script" path="res://Scripts/Personagens/snake.gd" id="1_8v6kh"]
-[ext_resource type="Texture2D" uid="uid://chl0xvxj5m8jj" path="res://Sprites/Inimigos/Cobra/Snake Slithering.png" id="1_curqk"]
+[ext_resource type="Texture2D" uid="uid://chl0xvxj5m8jj" path="res://Sprites/Inimigos/Snake/Snake Slithering.png" id="1_curqk"]
 [ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="2_37q8n"]
 [ext_resource type="PackedScene" uid="uid://dextgwq44bfff" path="res://Cenas/Components/hurtbox_component.tscn" id="3_ws48n"]
 

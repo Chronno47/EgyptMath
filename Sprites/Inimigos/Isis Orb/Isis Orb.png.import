@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chl0xvxj5m8jj"
-path="res://.godot/imported/Snake Slithering.png-c4296a0709c8da4a1c24a9bb4ce84cf3.ctex"
+uid="uid://dci6m6sjtyskw"
+path="res://.godot/imported/Isis Orb.png-eceaa140b93c9c9d50cb38cc7d82df2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Inimigos/Cobra/Snake Slithering.png"
-dest_files=["res://.godot/imported/Snake Slithering.png-c4296a0709c8da4a1c24a9bb4ce84cf3.ctex"]
+source_file="res://Sprites/Inimigos/Isis Orb/Isis Orb.png"
+dest_files=["res://.godot/imported/Isis Orb.png-eceaa140b93c9c9d50cb38cc7d82df2f.ctex"]
 
 [params]
 

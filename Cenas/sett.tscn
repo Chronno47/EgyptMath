@@ -1046,13 +1046,12 @@ size = Vector2(11, 23)
 [node name="Sett" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-15, 2)
 collision_layer = 2
-collision_mask = 25
 script = ExtResource("1_ox2r6")
 
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"Idle"
+animation = &"FallingAdicao"
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(15, -40)
@@ -1067,6 +1066,7 @@ shape = SubResource("RectangleShape2D_qch16")
 
 [node name="Hitbox Component" parent="." instance=ExtResource("3_5bvpf")]
 collision_layer = 2
+monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox Component"]
 position = Vector2(15.875, -4)
@@ -1075,7 +1075,7 @@ debug_color = Color(0.866667, 0.34902, 0.168627, 0.419608)
 
 [node name="Hurtbox Component" parent="." instance=ExtResource("4_bla84")]
 position = Vector2(15.875, -4)
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox Component"]
 position = Vector2(-0.375, -13.5)
@@ -1087,3 +1087,5 @@ offset_left = -121.0
 offset_top = -114.0
 offset_right = -57.0
 offset_bottom = -90.0
+
+[connection signal="body_entered" from="Hitbox Component" to="." method="_on_hitbox_component_body_entered"]
