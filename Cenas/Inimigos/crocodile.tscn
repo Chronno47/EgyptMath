@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://ds73v1flt4avd"]
+
+[ext_resource type="Script" path="res://Scripts/Personagens/crocodile.gd" id="1_j7004"]
+[ext_resource type="Texture2D" uid="uid://d212e72grwh6g" path="res://Sprites/Inimigos/Crocodile/Crocodilo.png" id="2_ipr3m"]
+[ext_resource type="PackedScene" uid="uid://bn3yrcgqhipd6" path="res://Cenas/Components/hitbox_component.tscn" id="3_cqfx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ac7d"]
+size = Vector2(64, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcsgd"]
+atlas = ExtResource("2_ipr3m")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja77u"]
+atlas = ExtResource("2_ipr3m")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pftps"]
+atlas = ExtResource("2_ipr3m")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stsl8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcsgd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ja77u")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_pftps")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgptj"]
+size = Vector2(28.5, 14)
+
+[node name="Crocodile" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_j7004")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_5ac7d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_stsl8")
+animation = &"Idle"
+frame_progress = 0.617045
+
+[node name="Hitbox Component" parent="." instance=ExtResource("3_cqfx0")]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox Component"]
+position = Vector2(-17.75, -3)
+shape = SubResource("RectangleShape2D_xgptj")
+debug_color = Color(0.866667, 0.341176, 0.25098, 0.419608)
+
+[node name="Player_Detector_Left" type="RayCast2D" parent="."]
+scale = Vector2(1, 3)
+target_position = Vector2(-100, 0)
+collision_mask = 2
+
+[node name="Player_Detector_Right" type="RayCast2D" parent="."]
+scale = Vector2(1, 3)
+target_position = Vector2(100, 0)
+collision_mask = 2

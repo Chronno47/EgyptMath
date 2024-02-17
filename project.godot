@@ -21,11 +21,13 @@ InteractionManager="*res://Cenas/Components/interaction_manager.tscn"
 SceneSwitcher="*res://Scripts/Components/scene_switcher.gd"
 PlayerInfo="*res://Scripts/Components/player_info.gd"
 UiOnScreen="*res://Scripts/Components/ui_on_screen.gd"
+DialogManager="*res://Scripts/Components/dialog_manager.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

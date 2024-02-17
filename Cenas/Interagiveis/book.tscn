@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cey8s7082h3u4"]
+
+[ext_resource type="Script" path="res://Scripts/Interagiveis/book.gd" id="1_knq44"]
+[ext_resource type="Texture2D" uid="uid://dten8yqgvfffq" path="res://Sprites/Interagiveis/Book.png" id="1_w32o7"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="3_1txeb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3hss"]
+radius = 15.0
+
+[node name="Book" type="Node2D"]
+script = ExtResource("1_knq44")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w32o7")
+
+[node name="Interactable Area" parent="." instance=ExtResource("3_1txeb")]
+action_name = "Ler"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_j3hss")

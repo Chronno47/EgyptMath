@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxnipfd3fke3c"]
+
+[ext_resource type="Texture2D" uid="uid://c40encb61rrhy" path="res://Backgrounds/Menu Background.jpg" id="1_g118b"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -31.0
+offset_top = -26.0
+offset_right = 1411.0
+offset_bottom = 749.0
+texture = ExtResource("1_g118b")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 431.0
+offset_right = 490.0
+offset_bottom = 715.0

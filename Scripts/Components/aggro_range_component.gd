@@ -5,6 +5,8 @@ signal player_exits_range
 
 func _on_body_entered(body: Node2D) -> void:
 	player_in_range.emit(body.global_position.x - self.global_position.x)
+	print("player entered aggro range")
 
 func _on_body_exited(body: Node2D) -> void:
 	player_exits_range.emit()
+	print("player exits aggro range")

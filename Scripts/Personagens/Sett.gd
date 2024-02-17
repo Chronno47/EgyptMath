@@ -7,6 +7,7 @@ const operator = preload("res://Scripts/Components/interaction_manager.gd").Oper
 signal game_over
 
 @export var jump_force: float = -200.0
+var player_speed:float = move_speed
 var knockback_vector := Vector2.ZERO
 var knockback_duration:float = 0.25
 var direction
@@ -47,10 +48,10 @@ func _physics_process(delta):
 
 	direction = Input.get_axis(INPUT_LEFT, INPUT_RIGHT)
 	if direction != 0:
-		velocity.x = direction * move_speed
+		velocity.x = direction * player_speed
 		animations.scale.x = direction
 	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.x = move_toward(velocity.x, 0, player_speed)
 	
 	if knockback_vector != Vector2.ZERO:
 		velocity = knockback_vector
@@ -134,6 +135,12 @@ func take_damage(amount):
 	
 	if player_health <= 0:
 		_on_player_death()
+
+func _on_water_area_on_water(is_on_water:bool):
+	if is_on_water:
+		player_speed *= 0.50
+	else:
+		player_speed = move_speed
 
 func _on_player_death():
 	#teve um trabalhinho pra achar isso, mas agora ele pega o caminho do res, em vez da arvore

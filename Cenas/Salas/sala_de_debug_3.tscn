@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0vuh1tlr0vij"]
+[gd_scene load_steps=22 format=3 uid="uid://d0vuh1tlr0vij"]
 
 [ext_resource type="Script" path="res://Scripts/Salas/sala_de_debug_3.gd" id="1_3kiw8"]
 [ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="1_r8f07"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="15_x06bk"]
 [ext_resource type="PackedScene" uid="uid://dpf4swxq04a1a" path="res://Cenas/Components/climb_area.tscn" id="19_t1bbg"]
 [ext_resource type="PackedScene" uid="uid://brfhu3neeb5v1" path="res://Cenas/Components/ladder_top.tscn" id="21_do2fl"]
+[ext_resource type="PackedScene" uid="uid://cey8s7082h3u4" path="res://Cenas/Interagiveis/book.tscn" id="21_r4qyi"]
 
 [node name="Sala de Debug 3" type="Node2D"]
 script = ExtResource("1_3kiw8")
@@ -115,6 +116,14 @@ position = Vector2(-24, -8)
 
 [node name="Sett" parent="." instance=ExtResource("2_ryoir")]
 position = Vector2(-9, -315)
+
+[node name="Book" parent="." instance=ExtResource("21_r4qyi")]
+position = Vector2(-45, -30)
+lines = Array[String](["hello"])
+
+[node name="Book2" parent="." instance=ExtResource("21_r4qyi")]
+position = Vector2(64, -32)
+lines = Array[String](["this is a test"])
 
 [connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
