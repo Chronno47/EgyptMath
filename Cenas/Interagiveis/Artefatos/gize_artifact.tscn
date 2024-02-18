@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6wrp8cpllmjn"]
+
+[ext_resource type="Texture2D" uid="uid://7lfmbb55nhnh" path="res://Sprites/Interagiveis/Artifacts.png" id="1_cuoi1"]
+[ext_resource type="Script" path="res://Scripts/Interagiveis/Artefatos/gize_artifact.gd" id="1_i83pg"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_t5is4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mmem"]
+
+[node name="Gize_Artifact" type="Node2D"]
+script = ExtResource("1_i83pg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cuoi1")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_t5is4")]
+action_name = "Coletar Artefato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_3mmem")

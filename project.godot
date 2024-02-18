@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EgyptMath"
-run/main_scene="res://Cenas/Salas/Sala de Debug.tscn"
+run/main_scene="res://Cenas/Interface/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,8 @@ SceneSwitcher="*res://Scripts/Components/scene_switcher.gd"
 PlayerInfo="*res://Scripts/Components/player_info.gd"
 UiOnScreen="*res://Scripts/Components/ui_on_screen.gd"
 DialogManager="*res://Scripts/Components/dialog_manager.gd"
+ArtifactInfo="*res://Scripts/Components/artifact_info.gd"
+SaveManager="*res://Scripts/Components/save_manager.gd"
 
 [display]
 

@@ -29,6 +29,9 @@ const INPUT_JUMP = "jump"
 #referenciando as variaveis com os nós
 @onready var animations := $"Animações" as AnimatedSprite2D
 
+func _ready():
+	SceneSwitcher.scene_switched.connect(_on_scene_switched)
+
 #region Parte de movimentação do jogador
 func _physics_process(delta):
 	
@@ -104,7 +107,9 @@ func _set_state():
 					state = "RunningDivisao"
 					
 	elif is_climbing:
-		state = "Climbing"
+		state = "Climbing_Idle"
+		if is_climbing && Input.is_action_pressed(INPUT_UP) || Input.is_action_pressed(INPUT_DOWN):
+			state = "Climbing"
 	elif !is_on_floor():
 		state = "Falling"
 	elif direction != 0:
@@ -147,3 +152,6 @@ func _on_player_death():
 	PlayerInfo.previous_scene_path = get_tree().current_scene.scene_file_path
 	print(PlayerInfo.previous_scene_path)
 	SceneSwitcher.switch_scene("res://Cenas/Interface/game_over_screen.tscn")
+
+func _on_scene_switched():
+	SaveManager.save_game_scene(get_tree().current_scene.scene_file_path)

@@ -46,6 +46,7 @@ size = Vector2(28.5, 14)
 
 [node name="Crocodile" type="CharacterBody2D"]
 collision_layer = 0
+collision_mask = 5
 script = ExtResource("1_j7004")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -59,6 +60,7 @@ frame_progress = 0.617045
 
 [node name="Hitbox Component" parent="." instance=ExtResource("3_cqfx0")]
 collision_layer = 4
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox Component"]
 position = Vector2(-17.75, -3)

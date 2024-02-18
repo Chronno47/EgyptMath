@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://hs1n5j78rtx3"]
+
+[ext_resource type="Script" path="res://Scripts/Interagiveis/Artefatos/sobek_artifact.gd" id="1_eq6ui"]
+[ext_resource type="Texture2D" uid="uid://7lfmbb55nhnh" path="res://Sprites/Interagiveis/Artifacts.png" id="1_o4rhr"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_6wnhp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocf8y"]
+
+[node name="Sobek_Artifact" type="Node2D"]
+script = ExtResource("1_eq6ui")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o4rhr")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_6wnhp")]
+action_name = "Coletar Artefato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_ocf8y")

@@ -5,7 +5,6 @@ extends Personagens_Gerais
 @onready var p_detector_right := $"Player_Detector_Right" as RayCast2D
 @onready var hitbox := $"Hitbox Component/CollisionShape2D"
 
-@export var health:int = 10
 var croc_speed = move_speed * 0.30
 var direction:int
 

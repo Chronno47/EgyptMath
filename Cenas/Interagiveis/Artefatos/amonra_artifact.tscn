@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bykve36hjeroi"]
+
+[ext_resource type="Texture2D" uid="uid://7lfmbb55nhnh" path="res://Sprites/Interagiveis/Artifacts.png" id="1_bnbbp"]
+[ext_resource type="Script" path="res://Scripts/Interagiveis/Artefatos/amonra_artifact.gd" id="1_o1ouq"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_3hov5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smstu"]
+
+[node name="Amonra_Artifact" type="Node2D"]
+script = ExtResource("1_o1ouq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bnbbp")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_3hov5")]
+action_name = "Coletar Artefato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_smstu")

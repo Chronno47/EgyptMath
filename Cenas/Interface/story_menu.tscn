@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnies1gjjgl76"]
+
+[ext_resource type="Script" path="res://Scripts/Interface/story_menu.gd" id="1_bcage"]
+[ext_resource type="Texture2D" uid="uid://c40encb61rrhy" path="res://Backgrounds/Menu Background.jpg" id="1_c68vw"]
+[ext_resource type="FontFile" uid="uid://c72448wf3njqc" path="res://Fonts/PublicPixel-z84yD.ttf" id="2_uxae2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tjmu"]
+bg_color = Color(0.74902, 0.262745, 0.101961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dtht"]
+bg_color = Color(0.74902, 0.262745, 0.101961, 1)
+
+[node name="Story_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bcage")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -31.0
+offset_top = -26.0
+offset_right = 1411.0
+offset_bottom = 749.0
+texture = ExtResource("1_c68vw")
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 1024.0
+offset_bottom = 576.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tjmu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 632.0
+offset_bottom = 448.0
+theme_override_fonts/normal_font = ExtResource("2_uxae2")
+theme_override_font_sizes/normal_font_size = 20
+text = "No coração do Egito Antigo, onde pirâmides majestosas tocam o céu e o Nilo flui misteriosamente, vive um aprendiz de sábio matemático chamado Sett.
+ 
+Sett descobre que a deusa da sabedoria, Seshat, está desaparecida, levando a um desequilíbrio
+nas forças do conhecimento. Sob as instruções do vidente de sua aldeia, Sett terá que libertar
+Seshat para restaurar a harmonia.
+
+Para isso, ele deve embarcar em uma aventura a dentro da
+pirâmide de Gizé, em busca de relíquias antigas (cristais da sabedoria) que juntas podem
+restaurar o conhecimento e libertar Seshat.
+
+Enfrentando enigmas matemáticos e desvendando
+segredos antigos, Sett embarca na aventura matemática.
+"
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 640.0
+offset_right = 672.0
+offset_bottom = 671.0
+theme_override_fonts/font = ExtResource("2_uxae2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dtht")
+text = "Voltar Para o Menu"
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

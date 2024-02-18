@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvpqcx42saq38"]
+
+[ext_resource type="Texture2D" uid="uid://7lfmbb55nhnh" path="res://Sprites/Interagiveis/Artifacts.png" id="1_75av6"]
+[ext_resource type="Script" path="res://Scripts/Interagiveis/Artefatos/isis_artifact.gd" id="1_veoca"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="2_en4wi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3iaik"]
+
+[node name="Isis_Artifact" type="Node2D"]
+script = ExtResource("1_veoca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_75av6")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="Interactable Area" parent="." instance=ExtResource("2_en4wi")]
+action_name = "Coletar Artefato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_3iaik")

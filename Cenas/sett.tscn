@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://cjt0gtcxj8gec"]
+[gd_scene load_steps=126 format=3 uid="uid://cjt0gtcxj8gec"]
 
 [ext_resource type="Script" path="res://Scripts/Personagens/Sett.gd" id="1_ox2r6"]
 [ext_resource type="Texture2D" uid="uid://dbd6op2ilfx7o" path="res://Sprites/Sett/Sett animations.png" id="2_70534"]
@@ -17,6 +17,10 @@ region = Rect2(160, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t43s1"]
 atlas = ExtResource("2_70534")
 region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uelxx"]
+atlas = ExtResource("2_70534")
+region = Rect2(128, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0yd3c"]
 atlas = ExtResource("2_70534")
@@ -484,6 +488,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uelxx")
+}],
+"loop": true,
+"name": &"Climbing_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0yd3c")
 }, {
 "duration": 1.0,
@@ -773,7 +785,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_favhw")
 }],
-"loop": true,
+"loop": false,
 "name": &"Running",
 "speed": 5.0
 }, {
@@ -1051,7 +1063,7 @@ script = ExtResource("1_ox2r6")
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"FallingAdicao"
+animation = &"Climbing_Idle"
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(15, -40)
