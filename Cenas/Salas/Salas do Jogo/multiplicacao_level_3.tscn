@@ -1,0 +1,190 @@
+[gd_scene load_steps=26 format=3 uid="uid://djefmv3ia3evo"]
+
+[ext_resource type="Script" path="res://Scripts/Salas/Salas Do Jogo/multiplicacao_level_3.gd" id="1_ysg47"]
+[ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="2_2x08e"]
+[ext_resource type="PackedScene" uid="uid://cm38nhj5222sf" path="res://Tilesets/passthrough_tiles.tscn" id="3_f7xn3"]
+[ext_resource type="PackedScene" uid="uid://twh6rtgsf4ym" path="res://Tilesets/rope.tscn" id="4_6llaj"]
+[ext_resource type="PackedScene" uid="uid://ceeay6hhwy2j2" path="res://Tilesets/water_tile.tscn" id="5_wcev3"]
+[ext_resource type="PackedScene" uid="uid://cmoqea284f8nf" path="res://Cenas/Level Backgrounds/level_background_parallax.tscn" id="6_1d8n1"]
+[ext_resource type="PackedScene" uid="uid://dit1rxp4yx7oe" path="res://Cenas/Interagiveis/stage_end_door.tscn" id="7_dl6v2"]
+[ext_resource type="PackedScene" uid="uid://dhhtj636fq3ii" path="res://Cenas/Components/holders_na_cena.tscn" id="7_osucf"]
+[ext_resource type="PackedScene" uid="uid://ds73v1flt4avd" path="res://Cenas/Inimigos/crocodile.tscn" id="7_ukh5g"]
+[ext_resource type="PackedScene" uid="uid://y7u1lhdr7318" path="res://Cenas/Interagiveis/holder.tscn" id="8_dh8sw"]
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="8_w0k23"]
+[ext_resource type="PackedScene" uid="uid://cw3c1b2hook3w" path="res://Cenas/Components/calculo_component.tscn" id="9_6f8po"]
+[ext_resource type="PackedScene" uid="uid://dr4ri0l6xnokh" path="res://Cenas/Interagiveis/coin_eight.tscn" id="11_t70va"]
+[ext_resource type="PackedScene" uid="uid://3ybv3et88ji" path="res://Cenas/Interagiveis/coin_four.tscn" id="12_2j6qu"]
+[ext_resource type="PackedScene" uid="uid://c3uloiqeopbkh" path="res://Cenas/Interagiveis/coin_six.tscn" id="13_mtl2f"]
+[ext_resource type="PackedScene" uid="uid://b6ijb0gn2irxk" path="res://Cenas/Interagiveis/multiplicacao.tscn" id="14_7wq4l"]
+[ext_resource type="PackedScene" uid="uid://b8ggji74vmqbo" path="res://Cenas/Interagiveis/adicao.tscn" id="15_c7eok"]
+[ext_resource type="PackedScene" uid="uid://xfl7qgp71h4n" path="res://Cenas/Interagiveis/face_door.tscn" id="16_cw4kp"]
+[ext_resource type="PackedScene" uid="uid://cf6ptckueddt0" path="res://Cenas/Interagiveis/subtracao.tscn" id="16_tgspy"]
+[ext_resource type="PackedScene" uid="uid://cjt0gtcxj8gec" path="res://Cenas/sett.tscn" id="17_ii6yo"]
+[ext_resource type="PackedScene" uid="uid://dpf4swxq04a1a" path="res://Cenas/Components/climb_area.tscn" id="17_n571x"]
+[ext_resource type="PackedScene" uid="uid://brfhu3neeb5v1" path="res://Cenas/Components/ladder_top.tscn" id="18_krnle"]
+[ext_resource type="PackedScene" uid="uid://dhox1u5dpjsok" path="res://Cenas/Components/water_area.tscn" id="19_egtis"]
+[ext_resource type="AudioStream" uid="uid://b7dlbp4503sv0" path="res://Audio/Musica/desert-voices-11468.mp3" id="24_cge02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kck1"]
+size = Vector2(245, 20)
+
+[node name="Multiplicacao Level-3" type="Node2D"]
+position = Vector2(224, 0)
+script = ExtResource("1_ysg47")
+
+[node name="Generic Rooms Tilemap" parent="." instance=ExtResource("2_2x08e")]
+layer_1/tile_data = PackedInt32Array(-65549, 851968, 0, -65548, 917504, 0, -131084, 917504, 1, -131085, 851968, 1, -12, 917504, 1, -262156, 917504, 1, -262157, 851968, 1, -196621, 851968, 0, -393229, 851968, 1, -458765, 851968, 0, -458764, 917504, 0, -393228, 917504, 1, -327692, 917504, 0, -327693, 851968, 0, -196620, 917504, 0, -13, 851968, 1, -655315, 851968, 0, -589779, 851968, 1, -655314, 917504, 0, -589778, 917504, 1, -524243, 851968, 0, -458707, 851968, 1, -524242, 917504, 0, -458706, 917504, 1, -393171, 851968, 0, -327635, 851968, 1, -393170, 917504, 0, -327634, 917504, 1, -262099, 851968, 0, -196563, 851968, 1, -262098, 917504, 0, -196562, 917504, 1, -131027, 851968, 0, -65491, 851968, 1, -131026, 917504, 0, -65490, 917504, 1, -589837, 851968, 0, -524301, 851968, 1, -589836, 917504, 0, -524300, 917504, 1)
+layer_2/tile_data = PackedInt32Array(131070, 1048576, 0, 131071, 1114112, 0, 65536, 1048576, 0, 65537, 1114112, 0, 65538, 1048576, 0, 65539, 1114112, 0, 65540, 1048576, 0, 65541, 1114112, 0, 65542, 1048576, 0, 65543, 1114112, 0, 65544, 1048576, 0, 65545, 1114112, 0, 65546, 1048576, 0, 65547, 1114112, 0, 65532, 458752, 8, 131068, 1048576, 0, 65533, 524288, 8, 131069, 1114112, 0, 65530, 1048576, 0, 131066, 1048576, 1, 65531, 1114112, 0, 131067, 1114112, 1, 65528, 1048576, 0, 131064, 1048576, 1, 65529, 1114112, 0, 131065, 1114112, 1, 65526, 1048576, 0, 131062, 1048576, 1, 65527, 1114112, 0, 131063, 1114112, 1, 65524, 1048576, 0, 131060, 1048576, 1, 65525, 1114112, 0, 131061, 1114112, 1, 65548, 1048576, 0, 13, 1114112, 0, 65549, 1048576, 1, 14, 1048576, 0, 65550, 1048576, 1, 65551, 1048576, 0, -589809, 196608, 8, -589813, 196608, 8, -589812, 262144, 8, -589811, 65536, 8, -589810, 131072, 8, -589817, 196608, 8, -589816, 262144, 8, -589815, 65536, 8, -589814, 131072, 8, -589821, 196608, 8, -589820, 262144, 8, -589819, 65536, 8, -589818, 131072, 8, -524289, 196608, 8, -589824, 262144, 8, -589823, 65536, 8, -589822, 131072, 8, -524292, 0, 8, -524291, 65536, 8, -524290, 131072, 8, 65522, 1048576, 0, 131058, 1048576, 1, 65523, 1114112, 0, 131059, 1114112, 1, -196622, 327680, 1, -131086, 327680, 2, -65550, 327680, 3, -14, 327680, 4, -458766, 327680, 1, -393230, 327680, 2, -327694, 327680, 3, -262158, 327680, 4, -524302, 524288, 4, 65552, 1114112, 0, 65553, 1048576, 0, 65554, 1114112, 0, 65555, 1048576, 0, 65556, 1114112, 0, 65557, 1048576, 0, 65558, 1114112, 0, 65559, 1048576, 0, 65560, 1114112, 0, 65561, 1048576, 0, 65562, 1114112, 0, 65563, 1048576, 0, 65564, 1114112, 0, 65565, 1048576, 0, 30, 1048576, 0, 65566, 1048576, 1, 31, 1114112, 0, 65567, 1114112, 1, 32, 1048576, 0, 65568, 1048576, 1, 33, 1114112, 0, 65569, 1114112, 1, 34, 1048576, 0, 65570, 1048576, 1, 35, 1114112, 0, 65571, 1114112, 1, 36, 1048576, 0, 65572, 1048576, 1, 37, 1114112, 0, 65573, 1114112, 1, 38, 1048576, 0, 65574, 1048576, 1, 39, 1114112, 0, 65575, 1114112, 1, 40, 1048576, 0, 65576, 1048576, 1, 41, 1114112, 0, 65577, 1114112, 1, 42, 1048576, 0, 65578, 1048576, 1, 43, 1114112, 0, 65579, 1114112, 1, 44, 1048576, 0, 65580, 1048576, 1, 45, 1114112, 0, 65581, 1114112, 1, 46, 1048576, 0, 65582, 1048576, 1, 47, 1114112, 0, 65583, 1114112, 1, -262097, 458752, 1, -196561, 458752, 2, -131025, 458752, 3, -65489, 458752, 4, -524241, 458752, 1, -458705, 458752, 2, -393169, 458752, 3, -327633, 458752, 4, -655313, 458752, 3, -589777, 458752, 4, -720849, 720896, 0, -589838, 524288, 3, -655374, 655360, 0, -655373, 65536, 5, -655372, 131072, 5, -655371, 196608, 5, -655370, 262144, 5, -655369, 65536, 5, -655368, 131072, 5, -655367, 196608, 5, -655366, 262144, 5, -655365, 65536, 5, -655364, 131072, 5, -655363, 196608, 5, -655362, 262144, 5, -655361, 65536, 5, -720896, 131072, 5, -720895, 196608, 5, -720894, 262144, 5, -720893, 65536, 5, -720892, 131072, 5, -720891, 196608, 5, -720890, 262144, 5, -720889, 65536, 5, -720888, 131072, 5, -720887, 196608, 5, -720886, 262144, 5, -720885, 65536, 5, -720884, 131072, 5, -720883, 196608, 5, -720882, 262144, 5, -720881, 65536, 5, -720880, 131072, 5, -720879, 196608, 5, -720878, 262144, 5, -720877, 65536, 5, -720876, 131072, 5, -720875, 196608, 5, -720874, 262144, 5, -720873, 65536, 5, -720872, 131072, 5, -720871, 196608, 5, -720870, 262144, 5, -720869, 65536, 5, -720868, 131072, 5, -720867, 196608, 5, -720866, 262144, 5, -720865, 65536, 5, -720864, 131072, 5, -720863, 196608, 5, -720862, 262144, 5, -720861, 65536, 5, -720860, 131072, 5, -720859, 196608, 5, -720858, 262144, 5, -720857, 65536, 5, -720856, 131072, 5, -720855, 196608, 5, -720854, 262144, 5, -720853, 65536, 5, -720852, 131072, 5, -720851, 196608, 5, -720850, 262144, 5, -589828, 0, 7, -589827, 65536, 7, -589826, 131072, 7, -589825, 196608, 7, -655360, 262144, 7, -655359, 65536, 7, -655358, 131072, 7, -655357, 196608, 7, -655356, 262144, 7, -655355, 65536, 7, -655354, 131072, 7, -655353, 196608, 7, -655352, 262144, 7, -655351, 65536, 7, -655350, 131072, 7, -655349, 196608, 7, -655348, 262144, 7, -655347, 65536, 7, -655346, 131072, 7, -655345, 196608, 7, -655344, 262144, 7, -589808, 262144, 8, -655343, 65536, 7, -589807, 65536, 8, -655342, 131072, 7, -589806, 131072, 8, -655341, 196608, 7, -589805, 196608, 8, -655340, 262144, 7, -589804, 262144, 8, -655339, 65536, 7, -589803, 65536, 8, -655338, 131072, 7, -589802, 131072, 8, -655337, 196608, 7, -589801, 196608, 8, -655336, 262144, 7, -589800, 262144, 8, -655335, 65536, 7, -589799, 65536, 8, -655334, 131072, 7, -589798, 131072, 8, -655333, 196608, 7, -589797, 196608, 8, -655332, 262144, 7, -589796, 262144, 8, -655331, 327680, 7, -589795, 327680, 8, -327667, 458752, 7, -262131, 458752, 8, -327666, 524288, 7, -262130, 524288, 8, -393188, 0, 10, -393187, 196608, 10, -393186, 458752, 0, -327650, 458752, 1, -262114, 458752, 2, -196578, 458752, 3, -131042, 458752, 4, -65506, 458752, 5, -393185, 524288, 0, -327649, 524288, 1, -262113, 524288, 2, -196577, 524288, 3, -131041, 524288, 4, -65505, 524288, 5, -65544, 917504, 4, -8, 917504, 5, -65543, 983040, 4, -7, 983040, 5, -131078, 1048576, 3, -65542, 1048576, 4, -6, 1048576, 5, -131077, 1114112, 3, -65541, 1114112, 4, -5, 1114112, 5, -4, 458752, 7, -3, 524288, 7, -393182, 0, 10, -393180, 131072, 10, -393179, 65536, 10, -393178, 131072, 10, -393177, 65536, 10, -393176, 131072, 10, -393175, 65536, 10, -393174, 131072, 10, -393173, 65536, 10, -393172, 131072, 10, -393171, 65536, 10, -393170, 196608, 10)
+
+[node name="Passthrough Tiles" parent="." instance=ExtResource("3_f7xn3")]
+layer_0/tile_data = PackedInt32Array(-393181, 65537, 3)
+
+[node name="Rope" parent="." instance=ExtResource("4_6llaj")]
+layer_0/tile_data = PackedInt32Array(-458754, 0, 1, -393218, 0, 1, -327682, 0, 2, -524287, 0, 1, -458751, 0, 1, -393215, 0, 2, -524283, 0, 1, -458747, 0, 1, -393211, 0, 1, -327675, 0, 2, -524281, 0, 1, -458745, 0, 2, -524278, 0, 1, -458742, 0, 1, -393206, 0, 1, -327670, 0, 2, -524272, 0, 1, -458736, 0, 2, -524268, 0, 1, -458732, 0, 1, -393196, 0, 1, -327660, 0, 1, -262124, 0, 2, -524265, 0, 1, -458729, 0, 1, -393193, 0, 1, -524262, 0, 1, -458726, 0, 1, -393190, 0, 1, -327654, 0, 1, -524259, 0, 1, -458717, 0, 0, -393181, 0, 1, -327645, 0, 1, -262109, 0, 1, -196573, 0, 1, -131037, 0, 1, -65501, 0, 2, -524285, 0, 1, -458749, 0, 1, -393213, 0, 1, -327677, 0, 1)
+
+[node name="WaterTile" parent="." instance=ExtResource("5_wcev3")]
+position = Vector2(0, 10)
+layer_0/tile_data = PackedInt32Array(-2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, 29, 0, 1, 28, 0, 1, 27, 0, 1, 26, 0, 1, 25, 0, 1, 24, 0, 1, 23, 0, 1, 22, 0, 1, 21, 0, 1, 20, 0, 1, 19, 0, 1, 18, 0, 1, 17, 0, 1, 16, 0, 1, 15, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("6_1d8n1")]
+
+[node name="Inimigos" type="Node2D" parent="."]
+
+[node name="Crocodile" parent="Inimigos" instance=ExtResource("7_ukh5g")]
+position = Vector2(174, 7)
+
+[node name="Crocodile2" parent="Inimigos" instance=ExtResource("7_ukh5g")]
+position = Vector2(445, 10)
+
+[node name="Holders na Cena" parent="." instance=ExtResource("7_osucf")]
+position = Vector2(-264, -11)
+
+[node name="Holder1" parent="Holders na Cena" instance=ExtResource("8_dh8sw")]
+position = Vector2(864, -5)
+
+[node name="Holder2" parent="Holders na Cena" instance=ExtResource("8_dh8sw")]
+position = Vector2(891, -5)
+
+[node name="Holder3" parent="Holders na Cena" instance=ExtResource("8_dh8sw")]
+position = Vector2(918, -5)
+
+[node name="Holder4" parent="Holders na Cena" instance=ExtResource("8_dh8sw")]
+position = Vector2(945, -5)
+
+[node name="Holder5" parent="Holders na Cena" instance=ExtResource("8_dh8sw")]
+position = Vector2(972, -5)
+
+[node name="Calculo Component" parent="Holders na Cena" instance=ExtResource("9_6f8po")]
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin_Eight" parent="Coins" instance=ExtResource("11_t70va")]
+position = Vector2(608, -104)
+
+[node name="Coin_Four" parent="Coins" instance=ExtResource("12_2j6qu")]
+position = Vector2(648, -104)
+
+[node name="Coin_Six" parent="Coins" instance=ExtResource("13_mtl2f")]
+position = Vector2(688, -104)
+
+[node name="Operators" type="Node2D" parent="."]
+
+[node name="Multiplicacao" parent="Operators" instance=ExtResource("14_7wq4l")]
+position = Vector2(720, -104)
+
+[node name="Adicao" parent="Operators" instance=ExtResource("15_c7eok")]
+position = Vector2(520, -8)
+
+[node name="Subtracao" parent="Operators" instance=ExtResource("16_tgspy")]
+position = Vector2(544, -8)
+
+[node name="StageEnd_Door" parent="." instance=ExtResource("7_dl6v2")]
+position = Vector2(744, -16)
+
+[node name="Door_Code1" type="Sprite2D" parent="StageEnd_Door"]
+position = Vector2(-4, -19)
+texture = ExtResource("8_w0k23")
+region_enabled = true
+region_rect = Rect2(48, 16, 16, 16)
+
+[node name="Door_Code2" type="Sprite2D" parent="StageEnd_Door"]
+position = Vector2(3, -19)
+texture = ExtResource("8_w0k23")
+region_enabled = true
+region_rect = Rect2(144, 16, 16, 16)
+
+[node name="Face_Door" parent="." instance=ExtResource("16_cw4kp")]
+position = Vector2(-192, -16)
+
+[node name="Sett" parent="." instance=ExtResource("17_ii6yo")]
+position = Vector2(-200, 0)
+
+[node name="Climb_Areas" type="Node2D" parent="."]
+
+[node name="Climb_Area" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(-24, -128)
+
+[node name="Climb_Area2" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(24, -128)
+
+[node name="Climb_Area3" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(88, -112)
+
+[node name="Climb_Area4" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(120, -144)
+
+[node name="Climb_Area5" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(168, -112)
+
+[node name="Climb_Area6" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(264, -144)
+
+[node name="Climb_Area7" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(328, -96)
+
+[node name="Climb_Area8" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(376, -128)
+
+[node name="Climb_Area9" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(424, -112)
+
+[node name="Climb_Area10" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(56, -112)
+
+[node name="Climb_Area11" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(472, -160)
+
+[node name="Climb_Area12" parent="Climb_Areas" instance=ExtResource("17_n571x")]
+position = Vector2(568, -48)
+
+[node name="Ladder_Top" parent="Climb_Areas/Climb_Area12" instance=ExtResource("18_krnle")]
+position = Vector2(0, -40)
+
+[node name="Water_Area" parent="." instance=ExtResource("19_egtis")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water_Area"]
+position = Vector2(84, 14)
+shape = SubResource("RectangleShape2D_4kck1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Water_Area"]
+position = Vector2(358.5, 14)
+shape = SubResource("RectangleShape2D_4kck1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_cge02")
+autoplay = true
+
+[connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder4" to="Holders na Cena" method="_on_holder_4_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder4" to="Holders na Cena" method="_on_holder_4_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder5" to="Holders na Cena" method="_on_holder_5_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder5" to="Holders na Cena" method="_on_holder_5_on_operator_placed"]
+[connection signal="result_updated" from="Holders na Cena/Calculo Component" to="StageEnd_Door" method="_on_calculo_component_result_updated"]
+[connection signal="player_enters_door" from="StageEnd_Door" to="." method="_on_stage_end_door_player_enters_door"]
+[connection signal="on_water" from="Water_Area" to="Sett" method="_on_water_area_on_water"]

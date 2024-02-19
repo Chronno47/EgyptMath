@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxnipfd3fke3c"]
+[gd_scene load_steps=6 format=3 uid="uid://bxnipfd3fke3c"]
 
 [ext_resource type="Script" path="res://Scripts/Interface/main_menu.gd" id="1_c4qyk"]
 [ext_resource type="Texture2D" uid="uid://c40encb61rrhy" path="res://Backgrounds/Menu Background.jpg" id="1_g118b"]
 [ext_resource type="FontFile" uid="uid://c72448wf3njqc" path="res://Fonts/PublicPixel-z84yD.ttf" id="2_vmv0d"]
+[ext_resource type="AudioStream" uid="uid://c8ttwnjxs4i6i" path="res://Audio/Musica/ocean-189623.mp3" id="4_s8gay"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcui4"]
 bg_color = Color(0.74902, 0.262745, 0.101961, 1)
@@ -79,6 +80,11 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_fcui4")
 action_mode = 0
 text = "Fechar Jogo"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s8gay")
+autoplay = true
+bus = &"Musica"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NovoJogo" to="." method="_on_novo_jogo_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]

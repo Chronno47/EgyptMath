@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwj5ghhp6n7oc"]
+
+[ext_resource type="AudioStream" uid="uid://b7dlbp4503sv0" path="res://Audio/Musica/desert-voices-11468.mp3" id="1_3pae4"]
+
+[node name="MusicaFases" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3pae4")

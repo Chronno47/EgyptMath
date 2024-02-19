@@ -1,0 +1,110 @@
+[gd_scene load_steps=21 format=3 uid="uid://chv8asouy82xx"]
+
+[ext_resource type="Script" path="res://Scripts/Salas/Salas Do Jogo/divisao_level_1.gd" id="1_t2n10"]
+[ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="2_7i01l"]
+[ext_resource type="PackedScene" uid="uid://cm38nhj5222sf" path="res://Tilesets/passthrough_tiles.tscn" id="3_yajbk"]
+[ext_resource type="PackedScene" uid="uid://twh6rtgsf4ym" path="res://Tilesets/rope.tscn" id="4_878fd"]
+[ext_resource type="PackedScene" uid="uid://dwuei1rxpm7nn" path="res://Cenas/Inimigos/spider.tscn" id="5_8e2i0"]
+[ext_resource type="PackedScene" uid="uid://xfl7qgp71h4n" path="res://Cenas/Interagiveis/face_door.tscn" id="5_ky1wq"]
+[ext_resource type="PackedScene" uid="uid://cey8s7082h3u4" path="res://Cenas/Interagiveis/book.tscn" id="6_e0tm6"]
+[ext_resource type="PackedScene" uid="uid://dhhtj636fq3ii" path="res://Cenas/Components/holders_na_cena.tscn" id="6_weir7"]
+[ext_resource type="PackedScene" uid="uid://y7u1lhdr7318" path="res://Cenas/Interagiveis/holder.tscn" id="7_c7jao"]
+[ext_resource type="PackedScene" uid="uid://cjt0gtcxj8gec" path="res://Cenas/sett.tscn" id="7_hk36o"]
+[ext_resource type="PackedScene" uid="uid://dit1rxp4yx7oe" path="res://Cenas/Interagiveis/stage_end_door.tscn" id="8_7nkgw"]
+[ext_resource type="PackedScene" uid="uid://dpf4swxq04a1a" path="res://Cenas/Components/climb_area.tscn" id="8_65t2d"]
+[ext_resource type="PackedScene" uid="uid://cw3c1b2hook3w" path="res://Cenas/Components/calculo_component.tscn" id="8_rtirc"]
+[ext_resource type="PackedScene" uid="uid://dr4ri0l6xnokh" path="res://Cenas/Interagiveis/coin_eight.tscn" id="9_38q8k"]
+[ext_resource type="PackedScene" uid="uid://brfhu3neeb5v1" path="res://Cenas/Components/ladder_top.tscn" id="9_nhmyw"]
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="9_xfv6v"]
+[ext_resource type="PackedScene" uid="uid://3ybv3et88ji" path="res://Cenas/Interagiveis/coin_four.tscn" id="10_qpfxm"]
+[ext_resource type="PackedScene" uid="uid://c3uloiqeopbkh" path="res://Cenas/Interagiveis/coin_six.tscn" id="11_om2uy"]
+[ext_resource type="PackedScene" uid="uid://7538d7523jcy" path="res://Cenas/Interagiveis/divisao.tscn" id="12_eah02"]
+[ext_resource type="AudioStream" uid="uid://b7dlbp4503sv0" path="res://Audio/Musica/desert-voices-11468.mp3" id="20_me2n5"]
+
+[node name="Divisao Level-1" type="Node2D"]
+script = ExtResource("1_t2n10")
+
+[node name="Generic Rooms Tilemap" parent="." instance=ExtResource("2_7i01l")]
+layer_2/tile_data = PackedInt32Array(65534, 1048576, 0, 131070, 1048576, 1, 65535, 1114112, 0, 131071, 1114112, 1, 0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1, 2, 1048576, 0, 65538, 1048576, 1, 3, 1114112, 0, 65539, 1114112, 1, 4, 1048576, 0, 65540, 1048576, 1, 5, 1114112, 0, 65541, 1114112, 1, 6, 1048576, 0, 65542, 1048576, 1, 7, 1114112, 0, 65543, 1114112, 1, 8, 1048576, 0, 65544, 1048576, 1, 9, 1114112, 0, 65545, 1114112, 1, 10, 1048576, 0, 65546, 1048576, 1, 11, 1114112, 0, 65547, 1114112, 1, 65532, 1048576, 0, 131068, 1048576, 1, 65533, 1114112, 0, 131069, 1114112, 1, 65530, 1048576, 0, 131066, 1048576, 1, 65531, 1114112, 0, 131067, 1114112, 1, 65528, 1048576, 0, 131064, 1048576, 1, 65529, 1114112, 0, 131065, 1114112, 1, 65526, 1048576, 0, 131062, 1048576, 1, 65527, 1114112, 0, 131063, 1114112, 1, 65524, 1048576, 0, 131060, 1048576, 1, 65525, 1114112, 0, 131061, 1114112, 1, 12, 1048576, 0, 65548, 1048576, 1, 13, 1114112, 0, 65549, 1114112, 1, 14, 1048576, 0, 65550, 1048576, 1, 15, 1114112, 0, 65551, 1114112, 1, -262129, 0, 1, -196593, 0, 2, -131057, 0, 3, -65521, 0, 4, -524273, 0, 1, -458737, 0, 2, -393201, 0, 3, -327665, 0, 4, -589809, 720896, 0, -589813, 65536, 5, -589812, 131072, 5, -589811, 196608, 5, -589810, 262144, 5, -589817, 65536, 5, -589816, 131072, 5, -589815, 196608, 5, -589814, 262144, 5, -589821, 65536, 5, -589820, 131072, 5, -589819, 196608, 5, -589818, 262144, 5, -524289, 65536, 5, -589824, 131072, 5, -589823, 196608, 5, -589822, 262144, 5, -524293, 65536, 5, -524292, 131072, 5, -524291, 196608, 5, -524290, 262144, 5, -524297, 65536, 5, -524296, 131072, 5, -524295, 196608, 5, -524294, 262144, 5, 65522, 1048576, 0, 131058, 1048576, 1, 65523, 1114112, 0, 131059, 1114112, 1, -196622, 327680, 1, -131086, 327680, 2, -65550, 327680, 3, -14, 327680, 4, -458766, 327680, 1, -393230, 327680, 2, -327694, 327680, 3, -262158, 327680, 4, -524302, 655360, 0, -524301, 65536, 5, -524300, 131072, 5, -524299, 196608, 5, -524298, 262144, 5, 196594, 1048576, 1, 196595, 1114112, 1, 196596, 1048576, 1, 196597, 1114112, 1, 196598, 1048576, 1, 196599, 1114112, 1, 196600, 1048576, 1, 196601, 1114112, 1, 196602, 1048576, 1, 196603, 1114112, 1, 196604, 1048576, 1, 196605, 1114112, 1, 196606, 1048576, 1, 196607, 1114112, 1, 131072, 1048576, 1, 131073, 1114112, 1, 131074, 1048576, 1, 131075, 1114112, 1, 131076, 1048576, 1, 131077, 1114112, 1, 131078, 1048576, 1, 131079, 1114112, 1, 131080, 1048576, 1, 131081, 1114112, 1, 131082, 1048576, 1, 131083, 1114112, 1, 131084, 1048576, 1, 131085, 1114112, 1, 131086, 1048576, 1, 131087, 1114112, 1, -327679, 0, 7, -262143, 0, 8, -327678, 65536, 7, -262142, 65536, 8, -327677, 131072, 7, -262141, 131072, 8, -327676, 196608, 7, -262140, 196608, 8, -327675, 262144, 7, -262139, 262144, 8, -327674, 327680, 7, -262138, 327680, 8, -131064, 458752, 7, -65528, 458752, 8, -131063, 524288, 7, -65527, 524288, 8, -196610, 196608, 10, -196612, 65536, 10, -196611, 131072, 10, -196613, 131072, 10, -196614, 65536, 10, -196616, 65536, 10, -196617, 0, 10)
+
+[node name="Passthrough Tiles" parent="." instance=ExtResource("3_yajbk")]
+layer_0/tile_data = PackedInt32Array(-196615, 65537, 3)
+
+[node name="Rope" parent="." instance=ExtResource("4_878fd")]
+layer_0/tile_data = PackedInt32Array(-262151, 0, 0, -196615, 0, 1, -131079, 0, 1, -65543, 0, 1, -7, 0, 1)
+
+[node name="Inimigos" type="Node2D" parent="."]
+
+[node name="Spider" parent="Inimigos" instance=ExtResource("5_8e2i0")]
+position = Vector2(56, -88)
+
+[node name="Holders na Cena" parent="." instance=ExtResource("6_weir7")]
+position = Vector2(224, -32)
+
+[node name="Holder1" parent="Holders na Cena" instance=ExtResource("7_c7jao")]
+position = Vector2(-168, 16)
+
+[node name="Holder2" parent="Holders na Cena" instance=ExtResource("7_c7jao")]
+position = Vector2(-141, 16)
+
+[node name="Holder3" parent="Holders na Cena" instance=ExtResource("7_c7jao")]
+position = Vector2(-114, 16)
+
+[node name="Calculo Component" parent="Holders na Cena" instance=ExtResource("8_rtirc")]
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin_Eight" parent="Coins" instance=ExtResource("9_38q8k")]
+position = Vector2(-24, -72)
+
+[node name="Coin_Four" parent="Coins" instance=ExtResource("10_qpfxm")]
+position = Vector2(88, -88)
+
+[node name="Coin_Six" parent="Coins" instance=ExtResource("11_om2uy")]
+position = Vector2(144, -40)
+
+[node name="Operators" type="Node2D" parent="."]
+
+[node name="Divisao" parent="Operators" instance=ExtResource("12_eah02")]
+position = Vector2(0, -8)
+
+[node name="Face_Door" parent="." instance=ExtResource("5_ky1wq")]
+position = Vector2(-192, -16)
+
+[node name="Book" parent="." instance=ExtResource("6_e0tm6")]
+position = Vector2(-160, -16)
+lines = Array[String](["A divisao é como o oposto da multiplicação", "É como distribuir igualmente algo entre um numero de grupos", "(16 / 8) é como distribuir 16 biscoitos entre 8 pessoas, e cada pessoa vai ficar com 2 biscoitos"])
+
+[node name="StageEnd_Door" parent="." instance=ExtResource("8_7nkgw")]
+position = Vector2(232, -16)
+
+[node name="Door_Code1" type="Sprite2D" parent="StageEnd_Door"]
+position = Vector2(-2, -18)
+texture = ExtResource("9_xfv6v")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="Sett" parent="." instance=ExtResource("7_hk36o")]
+position = Vector2(-200, 0)
+
+[node name="Climb_Areas" type="Node2D" parent="."]
+
+[node name="Climb_Area" parent="Climb_Areas" instance=ExtResource("8_65t2d")]
+position = Vector2(-104, -16)
+
+[node name="Ladder_Top" parent="Climb_Areas/Climb_Area" instance=ExtResource("9_nhmyw")]
+position = Vector2(0, -40)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_me2n5")
+autoplay = true
+
+[connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_operator_placed"]
+[connection signal="result_updated" from="Holders na Cena/Calculo Component" to="StageEnd_Door" method="_on_calculo_component_result_updated"]
+[connection signal="player_enters_door" from="StageEnd_Door" to="." method="_on_stage_end_door_player_enters_door"]

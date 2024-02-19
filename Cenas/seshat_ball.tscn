@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvwfwuvrl4n4t"]
+
+[ext_resource type="Script" path="res://Scripts/Personagens/Seshat_Ball.gd" id="1_vu1b5"]
+[ext_resource type="Texture2D" uid="uid://dayg3st3h71a4" path="res://Sprites/Seshat ball.png" id="2_lwpkv"]
+[ext_resource type="PackedScene" uid="uid://qtara5sdk405" path="res://Cenas/Components/interactable_area.tscn" id="3_qcw5d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsnn2"]
+radius = 16.0312
+
+[node name="Seshat_Ball" type="Node2D"]
+position = Vector2(144, -48)
+script = ExtResource("1_vu1b5")
+lines = Array[String](["Não se engane com minha forma esferica", "Meu Nome é Seshat, eu ouvi sobre o que está acontecendo fora da piramide", "Vamos sair daqui", "Com isso eu quero dizer pra fechar o jogo..."])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lwpkv")
+
+[node name="Interactable Area" parent="." instance=ExtResource("3_qcw5d")]
+action_name = "Falar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable Area"]
+shape = SubResource("CircleShape2D_hsnn2")

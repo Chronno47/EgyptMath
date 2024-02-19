@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceeay6hhwy2j2"]
+
+[ext_resource type="Texture2D" uid="uid://c8pr3t61kbqpq" path="res://Tilesets/Water tile.png" id="1_r8g6c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bxc8g"]
+texture = ExtResource("1_r8g6c")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_daocv"]
+sources/0 = SubResource("TileSetAtlasSource_bxc8g")
+
+[node name="WaterTile" type="TileMap"]
+z_index = 1
+tile_set = SubResource("TileSet_daocv")
+format = 2

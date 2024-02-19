@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmhsmg0ujktm2"]
+[gd_scene load_steps=20 format=3 uid="uid://bmhsmg0ujktm2"]
 
 [ext_resource type="Script" path="res://Scripts/Salas/Salas Do Jogo/subtracao_level_2.gd" id="1_3qre3"]
 [ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="1_no67g"]
@@ -6,9 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://twh6rtgsf4ym" path="res://Tilesets/rope.tscn" id="3_i028a"]
 [ext_resource type="PackedScene" uid="uid://3sutalhh58v5" path="res://Cenas/Inimigos/isis_orb.tscn" id="4_anp5v"]
 [ext_resource type="PackedScene" uid="uid://xfl7qgp71h4n" path="res://Cenas/Interagiveis/face_door.tscn" id="4_kju4e"]
+[ext_resource type="PackedScene" uid="uid://dhhtj636fq3ii" path="res://Cenas/Components/holders_na_cena.tscn" id="6_kdajx"]
 [ext_resource type="PackedScene" uid="uid://cjt0gtcxj8gec" path="res://Cenas/sett.tscn" id="6_pm7q2"]
+[ext_resource type="PackedScene" uid="uid://y7u1lhdr7318" path="res://Cenas/Interagiveis/holder.tscn" id="7_2hdq4"]
 [ext_resource type="PackedScene" uid="uid://dpf4swxq04a1a" path="res://Cenas/Components/climb_area.tscn" id="7_kh7mc"]
+[ext_resource type="PackedScene" uid="uid://dit1rxp4yx7oe" path="res://Cenas/Interagiveis/stage_end_door.tscn" id="7_py5g6"]
+[ext_resource type="Texture2D" uid="uid://dwjqlkl615td0" path="res://Sprites/Interagiveis/Interactables and Numbers.png" id="8_1y80n"]
 [ext_resource type="PackedScene" uid="uid://brfhu3neeb5v1" path="res://Cenas/Components/ladder_top.tscn" id="8_6w0lm"]
+[ext_resource type="PackedScene" uid="uid://cw3c1b2hook3w" path="res://Cenas/Components/calculo_component.tscn" id="8_ov13b"]
+[ext_resource type="PackedScene" uid="uid://cf6ptckueddt0" path="res://Cenas/Interagiveis/subtracao.tscn" id="9_k76yb"]
+[ext_resource type="PackedScene" uid="uid://be3xtgwhhhcoj" path="res://Cenas/Interagiveis/coin_nine.tscn" id="10_48kra"]
+[ext_resource type="PackedScene" uid="uid://dm7g2uhasu1cj" path="res://Cenas/coin_number_one.tscn" id="11_c8hgr"]
+[ext_resource type="PackedScene" uid="uid://3ybv3et88ji" path="res://Cenas/Interagiveis/coin_four.tscn" id="12_mhltv"]
+[ext_resource type="AudioStream" uid="uid://b7dlbp4503sv0" path="res://Audio/Musica/desert-voices-11468.mp3" id="19_b62k6"]
 
 [node name="Subtracao Level-2" type="Node2D"]
 position = Vector2(224, -32)
@@ -32,8 +42,52 @@ position = Vector2(16, -480)
 [node name="Isis_Orb2" parent="Inimigos" instance=ExtResource("4_anp5v")]
 position = Vector2(-80, -304)
 
+[node name="Holders na Cena" parent="." instance=ExtResource("6_kdajx")]
+position = Vector2(224, -32)
+
+[node name="Holder1" parent="Holders na Cena" instance=ExtResource("7_2hdq4")]
+position = Vector2(-192, 16)
+
+[node name="Holder2" parent="Holders na Cena" instance=ExtResource("7_2hdq4")]
+position = Vector2(-167, 16)
+
+[node name="Holder3" parent="Holders na Cena" instance=ExtResource("7_2hdq4")]
+position = Vector2(-142, 16)
+
+[node name="Calculo Component" parent="Holders na Cena" instance=ExtResource("8_ov13b")]
+
+[node name="Operators" type="Node2D" parent="."]
+position = Vector2(-72, -24)
+
+[node name="Subtracao" parent="Operators" instance=ExtResource("9_k76yb")]
+position = Vector2(16, 16)
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin_Nine" parent="Coins" instance=ExtResource("10_48kra")]
+position = Vector2(-104, -8)
+
+[node name="Coin Number One" parent="Coins" instance=ExtResource("11_c8hgr")]
+position = Vector2(-24, -8)
+
+[node name="Coin_Four" parent="Coins" instance=ExtResource("12_mhltv")]
+position = Vector2(0, -8)
+
 [node name="Face_Door" parent="." instance=ExtResource("4_kju4e")]
 position = Vector2(16, -560)
+
+[node name="StageEnd_Door" parent="." instance=ExtResource("7_py5g6")]
+position = Vector2(136, -16)
+rotation = 3.14159
+scale = Vector2(-1, -1)
+
+[node name="DoorCode" type="Sprite2D" parent="StageEnd_Door"]
+position = Vector2(-1.00005, -19)
+scale = Vector2(-1, 1)
+texture = ExtResource("8_1y80n")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(64, 16, 16, 16)
 
 [node name="Sett" parent="." instance=ExtResource("6_pm7q2")]
 position = Vector2(0, -544)
@@ -57,3 +111,17 @@ position = Vector2(-72, -240)
 
 [node name="Ladder_Top" parent="Climb_Areas/Climb_Area3" instance=ExtResource("8_6w0lm")]
 position = Vector2(0, -40)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_b62k6")
+autoplay = true
+
+[connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder2" to="Holders na Cena" method="_on_holder_2_on_operator_placed"]
+[connection signal="on_coin_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_coin_placed"]
+[connection signal="on_operator_placed" from="Holders na Cena/Holder3" to="Holders na Cena" method="_on_holder_3_on_operator_placed"]
+[connection signal="result_updated" from="Holders na Cena/Calculo Component" to="StageEnd_Door" method="_on_calculo_component_result_updated"]
+[connection signal="player_enters_door" from="StageEnd_Door" to="." method="_on_stage_end_door_player_enters_door"]

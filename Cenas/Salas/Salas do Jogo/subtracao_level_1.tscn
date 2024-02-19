@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cq2gbirmax0se"]
+[gd_scene load_steps=21 format=3 uid="uid://cq2gbirmax0se"]
 
 [ext_resource type="PackedScene" uid="uid://cccdtb4q2cuew" path="res://Tilesets/generic_rooms_tilemap.tscn" id="1_nuipt"]
 [ext_resource type="Script" path="res://Scripts/Salas/Salas Do Jogo/subtracao_level_1.gd" id="1_tknbm"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://twh6rtgsf4ym" path="res://Tilesets/rope.tscn" id="17_6f5dg"]
 [ext_resource type="PackedScene" uid="uid://dpf4swxq04a1a" path="res://Cenas/Components/climb_area.tscn" id="18_uackl"]
 [ext_resource type="PackedScene" uid="uid://brfhu3neeb5v1" path="res://Cenas/Components/ladder_top.tscn" id="19_fgpkr"]
+[ext_resource type="AudioStream" uid="uid://b7dlbp4503sv0" path="res://Audio/Musica/desert-voices-11468.mp3" id="20_0s71y"]
 
 [node name="Subtracao_Level-1" type="Node2D"]
 script = ExtResource("1_tknbm")
@@ -107,6 +108,10 @@ position = Vector2(200, -64)
 
 [node name="Ladder_Top" parent="Climb_Areas/Climb_Area" instance=ExtResource("19_fgpkr")]
 position = Vector2(0, -40)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_0s71y")
+autoplay = true
 
 [connection signal="on_item_placed" from="Holders na Cena" to="Holders na Cena/Calculo Component" method="_on_holders_na_cena_on_item_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder1" to="Holders na Cena" method="_on_holder_1_on_coin_placed"]

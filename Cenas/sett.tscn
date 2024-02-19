@@ -1063,7 +1063,7 @@ script = ExtResource("1_ox2r6")
 [node name="Animações" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -19)
 sprite_frames = SubResource("SpriteFrames_0b3so")
-animation = &"Climbing_Idle"
+animation = &"Idle"
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(15, -40)
