@@ -8,7 +8,7 @@ func _on_novo_jogo_pressed() -> void:
 		pass #SUBSTITUI POR POPUP DE TEM CERTEZA QUE QUER INICIAR NOVO JOGO
 
 func _on_continuar_pressed() -> void:
-	var saved_scene_path = SaveManager.load_saved_scene_path()
+	var saved_scene_path = SaveManager.laoad_saved_scene_path()
 	if saved_scene_path:
 		SceneSwitcher.switch_scene(saved_scene_path)
 

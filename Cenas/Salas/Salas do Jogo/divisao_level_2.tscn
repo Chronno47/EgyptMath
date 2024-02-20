@@ -121,4 +121,5 @@ autoplay = true
 [connection signal="on_operator_placed" from="Holders na Cena/Holder4" to="Holders na Cena" method="_on_holder_4_on_operator_placed"]
 [connection signal="on_coin_placed" from="Holders na Cena/Holder5" to="Holders na Cena" method="_on_holder_5_on_coin_placed"]
 [connection signal="on_operator_placed" from="Holders na Cena/Holder5" to="Holders na Cena" method="_on_holder_5_on_operator_placed"]
+[connection signal="result_updated" from="Holders na Cena/Calculo Component" to="StageEnd_Door" method="_on_calculo_component_result_updated"]
 [connection signal="player_enters_door" from="StageEnd_Door" to="." method="_on_stage_end_door_player_enters_door"]

@@ -69,10 +69,10 @@ position = Vector2(891, -5)
 position = Vector2(918, -5)
 
 [node name="Holder4" parent="Holders na Cena" instance=ExtResource("8_dh8sw")]
-position = Vector2(945, -5)
+position = Vector2(946, -5)
 
 [node name="Holder5" parent="Holders na Cena" instance=ExtResource("8_dh8sw")]
-position = Vector2(972, -5)
+position = Vector2(973, -5)
 
 [node name="Calculo Component" parent="Holders na Cena" instance=ExtResource("9_6f8po")]
 
@@ -117,7 +117,7 @@ region_rect = Rect2(144, 16, 16, 16)
 position = Vector2(-192, -16)
 
 [node name="Sett" parent="." instance=ExtResource("17_ii6yo")]
-position = Vector2(-200, 0)
+position = Vector2(-202, 2)
 
 [node name="Climb_Areas" type="Node2D" parent="."]
 

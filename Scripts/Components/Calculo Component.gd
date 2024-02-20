@@ -60,30 +60,30 @@ func _on_holders_na_cena_on_item_placed():
 func evaluate_expression(expression: String) -> int:
 	var tokens := expression.split(" ")
 	
-	# Primeira etapa: resolver multiplicação e divisão
-	var i := 1
-	while i < tokens.size():
+# Primeira etapa: resolver multiplicação e divisão
+	var i := tokens.size() - 2
+	while i >= 0:
 		var operator_symbol := tokens[i]
 		var operand := int(tokens[i + 1])
 
 		if operator_symbol == "*":
 			var previous_operand := int(tokens[i - 1])
-			tokens.remove_at(i - 1)
-			tokens.remove_at(i - 1)
+			tokens.remove_at(i)
+			tokens.remove_at(i)
 			tokens[i - 1] = str(previous_operand * operand)
-			i -= 1
+			i -= 2
 		elif operator_symbol == "/":
 			var previous_operand := int(tokens[i - 1])
 			if operand != 0:
-				tokens.remove_at(i - 1)
-				tokens.remove_at(i - 1)
+				tokens.remove_at(i)
+				tokens.remove_at(i)
 				tokens[i - 1] = str(previous_operand / operand)
-				i -= 1
+				i -= 2
 			else:
 				print("Erro: Divisão por zero!")
 				return 0
-
-		i += 2
+		else:
+			i -= 2
 
 	# Segunda etapa: resolver adição e subtração
 	var result: int = int(tokens[0])
